@@ -7,8 +7,8 @@
   $thumbsDir   = "$galleryDir/thumbs"; // Thumbnails directory (No trailing slash!)
   $logFile     = "gallery-log.txt";    // Directory/Name of log file
   $thumbSize   = 100;                  // Thumbnail width/height in pixels
-  $imgPerPage  = 36;                    // Images per page (0 disables pagination)
-  $cacheExpire = 60;                    // Frequency (in minutes) of cache refresh
+  $imgPerPage  = 0;                    // Images per page (0 disables pagination)
+  $cacheExpire = 0;                    // Frequency (in minutes) of cache refresh
   $verCheck    = 0;                    // Set to 1 to enable update notifications
 
 
