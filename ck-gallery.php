@@ -1,4 +1,4 @@
-<?php // CK-Gallery by Chris Kankiewicz <http://www.chriskankiewicz.com>
+<?php // CK-Gallery by, Chris Kankiewicz (http://www.web-geek.net)
 
   // Customize your gallery by changing the following variables. If a variable 
   // is contained within quotes make sure you don't delete the quotes.
