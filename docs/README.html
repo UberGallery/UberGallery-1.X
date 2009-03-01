@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <title>CK-Gallery</title>
+  <link rel="shortcut icon" href="images/favicon.gif" />
+  <link rel="stylesheet" type="text/css" href="css/style.css"  />
+  <!--[if IE]><style type="text/css">@import "css/ie-fixes.css";</style><![endif]-->
+  <meta name="keywords" content="CK-Gallery, Chris Kankiewicz" />
+</head>
+
+<body>
+
+<div id="wrapper">
+  <div id="header">
+    <span id="header-image">
+      <img src="images/ck-gallery_logo.png" alt="CK-Gallery"/>
+    </span>
+    <ul id="sub-header">
+      <!-- <li><a href="demo">Demo</a></li> -->
+      <li><a href="files/changelog.txt">Changelog</a></li>
+      <li><a href="files/gpl_v3.txt">Legal</a></li>
+    </ul>
+  </div>
+  <ul id="navbar">
+    <!-- <li><a href="#download">Download</a></li> -->
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#customization">Customization</a></li>
+    <li><a href="#pagination">Pagination</a></li>
+    <li><a href="#page-caching">Page Caching</a></li>
+    <li><a href="#update-notifications">Update Notifications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="clear"></div>
+  <div id="content">
+    <a name="description"></a>
+    <h2>Description</h2>
+
+    <p>CK-Gallery is a simple, yet powerful, PHP photo gallery that will basically
+    manage itself for you. CK-Gallery supports .jpg, .gif &amp; .png image types, and
+    will automatically creates thumbnails on the fly. The main feature of this
+    gallery is it automatically outputs XHTML compliant markup for inclusion on a
+    web page. The CK-Gallery will also automatically prune it's thumbnails, so
+    when you delete an image from the images folder, it will delete the
+    corresponding thumbnail. The gallery also creates a log file for reference and
+    debugging.  The CK-Gallery is licensed under the GNU General Public License
+    version 3.0.</p>
+
+    <p>With the update to version 1.0.0 CK-Gallery now has dynamic pagination.  This
+    will let users with larger galleries split the gallery up into several smaller
+    pages and allow visitors to easily navigate to those pages via a small
+    navigation bar below the gallery.  Among other changes, GZip compression was
+    implemented on the default index.php file included with the gallery, reducing
+    bandwidth and improving script execution speed significantly when active.</p>
+
+    <div class="hr"><hr /></div>
+
+    <!--
+    <a name="download"></a>
+    <h2>Download</h2>
+
+    <ul class="dl-box">
+      <li>
+        <a href="http://sourceforge.net/project/showfiles.php?group_id=242050&amp;package_id=296883"
+          title="Download CK-Gallery">
+          <img src="images/download_arrow.png" alt="Download" />
+          <strong>Download CK-Gallery</strong>
+          <span class="version">v1.1.1</span><br />
+          <span class="updated">Last Updated: February 1, 2009</span>
+        </a>
+      </li>
+    </ul>
+
+    <div class="hr"><hr /></div>
+    -->
+
+    <a name="requirements"></a>
+    <h3>Requirements</h3>
+
+    <p>Due to technical limitations of the functions used, you must be running PHP
+    version 4.0.6 or higher in a Linux environment, or version 4.3.0 on a Windows
+    environment. Also, you must have the PHP GD version 2.0.1 or later installed
+    (2.0.28 or later is recommended).</p>
+
+    <p>The oldest PHP version this script has been successfully tested on was a Linux
+    system running PHP version 4.3.11 and PHP GD version 2.0.28, if you've tested
+    CK-Gallery successfully on an older version of Linux or on any Windows server,
+    I'd like to know, please contact me.</p>
+
+    <p>For more information on PHP and PHP GD, please see 
+      <a href="http://www.php.net">http://www.php.net</a></p>
+
+    <div class="hr"><hr /></div>
+
+    <a name="included-files"></a>
+    <h3>Included Files/Folders</h3>
+
+<pre>
+/docs           - Gallery documentation
+/gallery        - Default image directory
+/thickbox       - Thickbox files
+ck-gallery.php  - Main gallery script
+gallery.css     - Gallery style sheet
+index.php       - Contains the page markup
+</pre>
+
+    <div class="hr"><hr /></div>
+
+    <a name="installation"></a>
+    <h2>Simple Installation</h2>
+
+    <ol>
+      <li>Upload the entire contents of this directory to your web server in the
+        directory where you would like the gallery to be displayed. (Example:
+        http://www.domain-name.com/photo-gallery/)</li>
+      <li>Upload your images to the /gallery directory.</li>
+      <li>Open your web browser and navigate to the directory where you installed the
+        gallery and the script should generate thumbnails and display your images.</li>
+    </ol>
+
+    <div class="hr"><hr /></div>
+
+    <h2>Install to Pre-Existing Web Page</h2>
+    <ol>
+      <li>If you wish to change the name or location of the images folder, thumbnails
+        folder, or log file, or you would like to enable pagination, open
+        ck-gallery.php and edit the variables found in the top of the script.</li>
+      <li>Upload ck-gallery.php to your web server.</li>
+      <li>Insert the following code to your page where you would like the gallery
+        to be displayed: <pre>&lt;?php include_once('path-to-file/ck-gallery.php'); ?&gt;</pre></li>
+      <li>If using pagination, copy the "Pagination" portion of gallery.css into your
+        own style sheet and edit it to your liking.</li>
+      <li>Open up your web browser and navigate to your page, this will create the
+        directory structure for you if it doesn't already exist.</li>
+      <li>Upload your images to the images directory ("/gallery" by default).</li>
+      <li>Refresh the page in your browser and the script should generate thumbnails
+        and display your images.</li>
+    </ol>
+
+    <div class="hr"><hr /></div>
+
+    <a name="customization"></a>
+
+    <h2>Customizing your Gallery</h2>
+
+    <p>The CK-Gallery comes with class and id elements already in place, this allows
+    for customization of the look and feel of your gallery.  All you have to do is
+    edit the CSS style sheet, or create your own, and you'll be off in no time.</p>
+
+    <p>This is the typical structure of the XHTML output:</p>
+
+<pre>
+&lt;div id="gallery-wrapper"&gt;
+  &lt;div id="ck-gallery"&gt;
+    &lt;a href="#"&gt;&lt;img src="#" alt="#" /&gt;&lt;/a&gt;
+    &lt;a href="#"&gt;&lt;img src="#" alt="#" /&gt;&lt;/a&gt;
+    &lt;a href="#"&gt;&lt;img src="#" alt="#" /&gt;&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+    <p>Also, here's the pagination navigation structure:</p>
+<pre>
+&lt;ul id="ck-pagination"&gt;
+  &lt;li class="inactive"&gt;&amp;lt;&lt;/li&gt;
+  &lt;li class="current-page"&gt;1&lt;/li&gt;
+  &lt;li&gt;&lt;a href="?page=2"&gt;2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="?page=3"&gt;3&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="?page=4"&gt;4&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="?page=2"&gt;&amp;gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+
+    <div class="hr"><hr /></div>
+
+    <a name="pagination"></a>
+    <h2>Pagination</h2>
+
+    <p>To enable pagination, open ck-gallery.php, find "$imgPerPage = 0;" at the top
+    and set this value to the number of images you would like to display per page.</p>
+
+    <p>NOTE: If pagination is enabled, the script will generate thumbnails on a
+    per-page basis. You do not have to worry about this though, the first time a
+    visitor visits a page without thumbnails, it will automatically generate the
+    thumbnails, however this may cause the page to take several seconds to load
+    while this processes.</p>
+
+    <div class="hr"><hr /></div>
+
+    <a name="page-caching"></a>
+    <h2>Page Caching</h2>
+
+    <p>Page caching can drastically reduce the CPU load on your server and is more
+    efficient for servers with high traffic.  To enable page caching, edit the
+    "$expireTime = 0;" value found at the top of the ck-gallery.php script. This
+    value is the time in minutes after which a new cach file will be generated.</p>
+
+    <p>NOTE: At the moment, if you upload new images or make a change to the script
+    while caching is enabled, you will have to delete the cache files or wait the
+    ammouont of time specified before your changes will be reflected on the page.</p>
+
+    <p>To delete the cache files, use an FTP program or shell access to delete the
+    "gallery-cache" folder and all of it's contents.</p>
+
+    <div class="hr"><hr /></div>
+
+    <a name="update-notifications"></a>
+    <h2>Update Notifications</h2>
+
+    <p>To enable the update notification, open ck-gallery.php, find "$verCheck = 0;"
+    and change this value to 1.  Once done, whenever an update to CK-Gallery is
+    available, a message will appear at the bottom of your gallery informing you
+    of this new version and providing a link to the new version.</p>
+
+    <p>Also, don't forget to follow <a href="http://twitter.com/ckgallery">
+    @ckgallery</a> on twitter to be notified of updates and other news.</p>
+
+    <div class="hr"><hr /></div>
+
+    <a name="gzip-compression"></a>
+    <h2>GZip Compression</h2>
+
+    <p>In order to improve the performance and reduce the bandwidth of your gallery,
+    it's recomended that you enable gzip compression on the page for which your
+    gallery is being displayed. In order to accomplish this, place the following
+    code at the very beginning of the page to which the gallery will be displayed:</p>
+
+<pre>
+&lt;?php substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip') ? ob_start("ob_gzhandler") : ob_start(); ?&gt;
+</pre>
+
+    <p>This code must be the very fist thing the browser loads or it will cause
+    errors. See the index.php file included with the gallery for an example of how
+    this code is layed out.</p>
+
+    <p>NOTE: Compression is already enabled in the default index.php, if you are
+    getting errors related to this, remove the first line of index.php and please
+    send me an email noting your version of PHP and any other relevant info.</p>
+
+    <div class="hr"><hr /></div>
+
+    <a name="contact"></a>
+    <h2>Contact</h2>
+
+    <p>If you have any questions or comments, please email me:
+    <a href="mailto:Gallery%20[at]%20Web-Geek%20[dot]%20net">Gallery [at] Web-Geek [dot] net</a></p>
+
+    <div class="hr"><hr /></div>
+
+    <a name="shout-outs"></a>
+    <h2>Shout Outs</h2>
+
+    <p>Thanks go out to <a href="http://dualisanoob.com">Dual</a>
+    for inadvertently inspiring me to get up off my ass and program this.</p>
+
+    <p>Also, thanks to <a href="http://www.blastwavelabs.com">
+    Penguin</a> for answering questions throughout the entire development process
+    and for some bug testing.</p>
+
+    <p>Thanks also to <a href="http://www.wetwarehacks.com">Nak</a>
+    for rigorous beta testing that helped me iron out a number of bugs and fix
+    backwards capabilities.</p>
+
+    <p>Lastly, thanks to the <a href="http://www.stackoverflow.com">
+    StackOverflow.com</a> community for help here and there.</p>
+
+    <div class="hr"><hr /></div>
+
+    <a name="additional-info"></a>
+    <h2>Additional Info</h2>
+
+    <p>For more info and to download CK-Gallery, please visit:
+    <a href="http://code.web-geek.net/ck-gallery">http://code.web-geek.net/ck-gallery</a></p>
+
+  </div>
+  <div id="footer">
+    <span class="left">
+      &copy; 2008 - 2009 &bull;
+      <a href="http://www.chriskankiewicz.com">Chris Kankiewicz</a>
+      &bull; Some Rights Reserved
+    </span>
+    <span class="right">Design by, <a href="http://www.web-geek.net">Chris Kankiewicz</a></span>
+  </div>
+</div>
+
+<!-- Page design by, Chris Kankiewicz <http://www.chriskankiewicz.com> -->
+
+</body>
+</html>

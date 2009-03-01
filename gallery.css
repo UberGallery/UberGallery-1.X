@@ -1,0 +1,113 @@
+/***************
+*  CK-GALLERY  *
+***************/
+
+body {
+  background-color: #323232;
+  font-family: verdana, tahoma, arial, sans serif;
+}
+
+#gallery-wrapper {
+  width: 100%; /* Leave this value, change width below */
+}
+
+#ck-gallery {
+  background-color: #969696;
+  border-left: 5px solid #646464;
+  border-right: 5px solid #646464;
+  margin: 0 auto;
+  padding: 10px;
+  width: 708px; /* Change gallery width here */
+}
+
+#ck-gallery img {
+  background-color: #FFF;
+  border: 1px solid #CCC;
+  float: left;
+  margin: 5px !important;
+  padding: 3px;
+}
+
+#ck-gallery img:hover {
+  border: 1px solid #000;
+}
+
+#ck-gallery div.hr { /* IE hack */
+  background-color: #323232;
+  border: 0;
+  height: 2px;
+  margin: .5em 0 .2em;
+}
+
+#ck-gallery div.hr hr { /* IE hack */
+  display: none;
+}
+
+#credit {
+  float: right;
+  font-size: .8em;
+}
+
+#ck-notice {
+  background-color: #AAA;
+  border: 1px solid #323232;
+  font-size: .8em;
+  padding: 5px;
+  margin: 5px 0;
+  text-align: center;
+}
+
+.clear {
+  height: 0px !important;
+  clear: both;
+}
+
+/***************
+*  PAGINATION  *
+***************/
+
+#ck-pagination {
+  float: left;
+  font-size: .8em;
+  font-weight: bold;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: center;
+}
+
+#ck-pagination li {
+  background-color: #969696;
+  border: 1px solid #323232;
+  display: block;
+  float: left;
+  list-style: none;
+  margin: 0 5px 0 0 !important;
+}
+
+#ck-pagination li:hover {
+  background-color: #757575;
+}
+
+#ck-pagination li a {
+  color: #323232;
+  display: block;
+  padding: 2px 5px;
+  text-decoration: none;
+}
+
+#ck-pagination li.current-page {
+  background-color: #323232;
+  border: 1px solid #323232;
+  color: #969696;
+  padding: 2px 5px;
+}
+
+#ck-pagination li.inactive {
+  background-color: #969696;
+  border: 1px solid #646464;
+  color: #646464;
+  display: block;
+  padding: 2px 5px;
+}
+
+/* gallery.css Created by, Chris Kankiewicz <http://web-geek.net/ck-gallery> */
