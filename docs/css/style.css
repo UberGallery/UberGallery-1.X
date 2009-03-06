@@ -23,6 +23,17 @@ a:hover {
   width: 760px;
 }
 
+a img {
+  background-color: #DEDEDE;
+  border: none;
+  margin-right: 10px;
+  padding: 4px;
+}
+
+a img:hover {
+  background-color: #3269AA;
+}
+
 /***********
 *  HEADER  *
 ***********/
@@ -129,6 +140,7 @@ ul#navbar li a:hover {
 #content div.hr {
   background-color: #CCC;
   border: 0;
+  clear: both;
   height: 1px;
   margin: 1.2em 0;
   width: 100%;
@@ -151,7 +163,7 @@ ul#navbar li a:hover {
 
 #content ol pre, #content ul pre {
   margin: .5em 0 !important;
-}	
+}
 
 /***********
 *  DL-BOX  *
@@ -210,13 +222,6 @@ ul.dl-box li a img {
   color: #555;
 }
 
-.clear {
-  clear: both;
-  height: 0 !important;
-  margin: 0;
-  padding: 0;
-}
-
 /***********
 *  FOOTER  *
 ***********/
@@ -240,4 +245,15 @@ ul.dl-box li a img {
   float: right;
   text-align: right;
   width: 50%;
+}
+
+/**********
+*  OTHER  *
+**********/
+
+.clear {
+  clear: both;
+  height: 0 !important;
+  margin: 0;
+  padding: 0;
 }
