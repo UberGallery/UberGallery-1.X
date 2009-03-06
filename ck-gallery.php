@@ -7,14 +7,14 @@
   $thumbsDir   = "$galleryDir/thumbs"; // Thumbnails directory (No trailing slash!)
   $logFile     = "gallery-log.txt";    // Directory/Name of log file
   $thumbSize   = 100;                  // Thumbnail width/height in pixels
-  $imgPerPage  = 36;                    // Images per page (0 disables pagination)
-  $cacheExpire = 60;                    // Frequency (in minutes) of cache refresh
+  $imgPerPage  = 0;                    // Images per page (0 disables pagination)
+  $cacheExpire = 0;                    // Frequency (in minutes) of cache refresh
   $verCheck    = 0;                    // Set to 1 to enable update notifications
 
 
   // *** DO NOT EDIT ANYTHING BELOW HERE UNLESS YOU ARE A PHP NINJA ***
 
-  $version = "1.2.0"; // File version
+  $version = "1.2.1"; // File version
 
   isset($_GET['page']) ? $currentPage = $_GET['page'] : $currentPage = 1;
   
@@ -184,10 +184,10 @@
     }
 
     // Closing markup
-    echo("    <div id=\"credit\">Powered by <a href=\"http://code.web-geek.net/ck-gallery\" target=\"_blank\">CK-Gallery</a>");
+    echo("    <div id=\"credit\">Powered by <a href=\"http://github.com/PHLAK/ck-gallery\">CK-Gallery</a>");
     // Display Thickbox link if site is using Thickbox
-    if(file_exists("thickbox.js") || file_exists("thickbox/thickbox.js")) {
-      echo(" &amp; <a href=\"http://jquery.com/demo/thickbox\" target=\"_blank\">Thickbox</a></div>\r\n");
+    if(file_exists("thickbox.js") || file_exists("thickbox/thickbox.js") || file_exsts("js/thickbox.js")) {
+      echo(" &amp; <a href=\"http://jquery.com/demo/thickbox\">Thickbox</a></div>\r\n");
     } else {
       echo("</div>\r\n");
     }
