@@ -1,0 +1,25 @@
+CK-Gallery
+------------------------------------------------------------------
+CK-Gallery is a simple, yet powerful, PHP photo gallery that will basically 
+manage itself for you. CK-Gallery supports .jpg, .gif & .png image types, and 
+will automatically creates thumbnails on the fly. The main feature of this 
+gallery is it automatically outputs XHTML compliant markup for inclusion on a 
+web page.
+
+
+Documentation
+------------------------------------------------------------------
+For full documentation, refer to README.html found in the 'docs' folder.
+
+
+Copyright (C) 2009 Chris Kankiewicz <Chris@ChrisKankiewicz.com>
+------------------------------------------------------------------
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
