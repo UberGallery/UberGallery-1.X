@@ -3,18 +3,18 @@
   // Customize your gallery by changing the following variables. If a variable 
   // is contained within quotes make sure you don't delete the quotes.
 
-  $galleryDir  = "gallery";            // Original images directory (No trailing slash!)
+  $galleryDir  = "ck-gallery/gallery"; // Original images directory (No trailing slash!)
   $thumbsDir   = "$galleryDir/thumbs"; // Thumbnails directory (No trailing slash!)
-  $logFile     = "gallery-log.txt";    // Directory/Name of log file
+  $logFile     = "ck-gallery.log";     // Directory/Name of log file
   $thumbSize   = 100;                  // Thumbnail width/height in pixels
-  $imgPerPage  = 0;                    // Images per page (0 disables pagination)
+  $imgPerPage  = 30;                    // Images per page (0 disables pagination)
   $cacheExpire = 0;                    // Frequency (in minutes) of cache refresh
   $verCheck    = 0;                    // Set to 1 to enable update notifications
 
 
   // *** DO NOT EDIT ANYTHING BELOW HERE UNLESS YOU ARE A PHP NINJA ***
 
-  $version = "1.2.1"; // File version
+  $version = "1.3.0"; // File version
 
   isset($_GET['page']) ? $currentPage = $_GET['page'] : $currentPage = 1;
   
@@ -22,7 +22,7 @@
   // *** START PAGE CACHING ***
   
   // Create cache directory if it doesn't exist
-  $cacheDir = "gallery-cache";
+  $cacheDir = "ck-gallery/.cache";
   if (!file_exists($cacheDir)) {
     mkdir($cacheDir);
   }
@@ -184,13 +184,7 @@
     }
 
     // Closing markup
-    echo("    <div id=\"credit\">Powered by <a href=\"http://github.com/PHLAK/ck-gallery\">CK-Gallery</a>");
-    // Display Thickbox link if site is using Thickbox
-    if(file_exists("thickbox.js") || file_exists("thickbox/thickbox.js") || file_exsts("js/thickbox.js")) {
-      echo(" &amp; <a href=\"http://jquery.com/demo/thickbox\">Thickbox</a></div>\r\n");
-    } else {
-      echo("</div>\r\n");
-    }
+    echo("    <div id=\"credit\">Powered by, <a href=\"http://github.com/PHLAK/ck-gallery\">CK-Gallery</a></div>\r\n");
 
     // Version check and notification
     if ($verCheck == "1") {
