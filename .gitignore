@@ -13,4 +13,4 @@
 *.log
 
 # Ignore 'gallery' directory
-/gallery/*
+/ck-gallery/gallery/*
