@@ -4,8 +4,8 @@
 
 <head>
   <title>CK Gallery</title>
-  <link rel="stylesheet" href="gallery.css" type="text/css" media="screen" />
-  <link rel="stylesheet" href="thickbox/thickbox.css" type="text/css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="ck-gallery/ck-gallery.css" />
+  <link rel="stylesheet" type="text/css" href="ck-gallery/thickbox/thickbox.css" />
 </head>
 <?php flush() ?>
 <body>
@@ -13,8 +13,8 @@
 <?php include_once('ck-gallery.php'); ?>
 
 <!-- THICKBOX -->
-<script type="text/javascript" src="thickbox/jquery.js"></script>
-<script type="text/javascript" src="thickbox/thickbox.js"></script>
+<script type="text/javascript" src="ck-gallery/thickbox/jquery.js"></script>
+<script type="text/javascript" src="ck-gallery/thickbox/thickbox.js"></script>
 <!-- /THICKBOX -->
 
 <?php if ($gzip == "1") echo("<!-- Page served with gzip compression -->\r\n"); ?>
