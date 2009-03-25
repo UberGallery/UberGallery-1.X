@@ -206,11 +206,13 @@ if (file_exists($cacheFile) && time() - $cacheTime < filemtime($cacheFile) && $c
 
 	fclose($log); // Close log
 
-	// Cache the output to a file
-	$fp = fopen($cacheFile, 'w');
-	fwrite($fp, ob_get_contents());
-	fclose($fp);
-	ob_end_flush(); // Send the output to the browser
+	if ($cacheExpire >= 1) {
+		// Cache the output to a file
+		$fp = fopen($cacheFile, 'w');
+		fwrite($fp, ob_get_contents());
+		fclose($fp);
+		ob_end_flush(); // Send the output to the browser
+	}
 }
 
 
