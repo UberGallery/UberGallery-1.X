@@ -23,7 +23,7 @@ isset($_GET['page']) ? $currentPage = $_GET['page'] : $currentPage = 1;
 
 // Create cache directory if it doesn't exist
 $cacheDir = "ck-gallery/.cache";
-if (!file_exists($cacheDir)) {
+if (!file_exists($cacheDir) && $cacheExpire >= 1) {
 	mkdir($cacheDir);
 }
 $cacheFile = "$cacheDir/page$currentPage-cached.html";
