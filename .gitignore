@@ -9,7 +9,8 @@
 .*
 !.gitignore
 
-# Ignore all .log files
+# Ignore all log files
+gallery-log.txt
 *.log
 
 # Ignore 'gallery' directory
