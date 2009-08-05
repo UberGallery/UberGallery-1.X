@@ -3,20 +3,25 @@
 // Customize your gallery by changing the following variables. If a variable
 // is contained within quotes make sure you don't delete the quotes.
 
-$galleryDir  = "ck-gallery/gallery"; // Original images directory (No trailing slash!)
-$thumbsDir   = "$galleryDir/thumbs"; // Thumbnails directory (No trailing slash!)
-$logFile     = "ck-gallery.log";     // Directory/Name of log file
-$thumbSize   = 100;                  // Thumbnail width/height in pixels
-$imgPerPage  = 0;                    // Images per page (0 disables pagination)
-$cacheExpire = 0;                    // Frequency (in minutes) of cache refresh
-$verCheck    = 0;                    // Set to 1 to enable update notifications
+$galleryDir		= "ck-gallery/images";		// Original images directory (No trailing slash!)
+$thumbsDir		= "$galleryDir/thumbs";		// Thumbnails directory (No trailing slash!)
+$logFile		= "ck-gallery.log";			// Directory/Name of log file
+$thumbSize		= 100;						// Thumbnail width/height in pixels
+$imgPerPage		= 0;						// Images per page (0 disables pagination)
+$cacheExpire	= 0;						// Frequency (in minutes) of cache refresh
+$verCheck		= 0;						// Set to 1 to enable update notifications
 
 
 // *** DO NOT EDIT ANYTHING BELOW HERE UNLESS YOU ARE A PHP NINJA ***
 
-$version = "1.3.0"; // File version
+$version = "1.4.0"; // File version
 
-isset($_GET['page']) ? $currentPage = $_GET['page'] : $currentPage = 1;
+if ($_GET['page']) {
+	// Sanitize input and set current page
+	$currentPage = (integer) $_GET['page'];
+} else {
+	$currentPage = 1;
+}
 
 
 // *** START PAGE CACHING ***
@@ -206,7 +211,7 @@ if (file_exists($cacheFile) && time() - $cacheTime < filemtime($cacheFile) && $c
 
 	fclose($log); // Close log
 
-	if ($cacheExpire >= 1) {
+	if ($cacheExpire > 0) {
 		// Cache the output to a file
 		$fp = fopen($cacheFile, 'w');
 		fwrite($fp, ob_get_contents());

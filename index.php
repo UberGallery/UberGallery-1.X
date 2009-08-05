@@ -4,13 +4,13 @@
 
 <head>
   <title>CK Gallery</title>
-  <link rel="stylesheet" type="text/css" href="ck-gallery/ck-gallery.css" />
+  <link rel="stylesheet" type="text/css" href="ck-gallery/css/ck-gallery.css" />
   <link rel="stylesheet" type="text/css" href="ck-gallery/thickbox/thickbox.css" />
 </head>
 <?php flush() ?>
 <body>
 
-<?php include_once('ck-gallery.php'); ?>
+<?php include_once('ck-gallery/ck-gallery.php'); ?>
 
 <!-- THICKBOX -->
 <script type="text/javascript" src="ck-gallery/thickbox/jquery.js"></script>
