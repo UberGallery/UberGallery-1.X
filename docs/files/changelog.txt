@@ -1,10 +1,18 @@
 CK-Gallery Change Log
 ----------------------------------------
 
+  [ Changes to 1.4.0 ]
+
+    - Fixed major code injection vulnerability
+    - Cache will no longer create files for pages not in your gallery 
+    - Restructured file/folder layout
+    - Removed unnecessary files
+    - Fixed .gitignore to allow cache to be included 
+
   [ Changes to 1.3.0 ]
 
-	- Restructured folder layout
-	- Changed cahce folder name to '.cache'
+    - Restructured folder layout
+    - Changed cahce folder name to '.cache'
     - Changed default gallery log file name to 'ck-gallery.log'
     - Changed credit link to GitHub repository
 
@@ -93,7 +101,6 @@ CK-Gallery Change Log
       the StackOverflow.com community for their help here!)
     - Minor markup output changes
     - Moved the change log to its own file
-
 
   [ Changes to .79 ]
 
