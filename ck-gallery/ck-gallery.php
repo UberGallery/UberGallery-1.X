@@ -7,8 +7,8 @@ $galleryDir		= "ck-gallery/images";		// Original images directory (No trailing s
 $thumbsDir		= "$galleryDir/thumbs";		// Thumbnails directory (No trailing slash!)
 $logFile		= "ck-gallery.log";			// Directory/Name of log file
 $thumbSize		= 100;						// Thumbnail width/height in pixels
-$imgPerPage		= 18;						// Images per page (0 disables pagination)
-$cacheExpire	= 30;						// Frequency (in minutes) of cache refresh
+$imgPerPage		= 0;						// Images per page (0 disables pagination)
+$cacheExpire	= 0;						// Frequency (in minutes) of cache refresh
 $verCheck		= 0;						// Set to 1 to enable update notifications
 
 
