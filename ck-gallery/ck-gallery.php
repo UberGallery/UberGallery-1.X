@@ -7,8 +7,8 @@ $galleryDir		= "ck-gallery/images";		// Original images directory (No trailing s
 $thumbsDir		= "$galleryDir/thumbs";		// Thumbnails directory (No trailing slash!)
 $logFile		= "ck-gallery.log";			// Directory/Name of log file
 $thumbSize		= 100;						// Thumbnail width/height in pixels
-$imgPerPage		= 0;						// Images per page (0 disables pagination)
-$cacheExpire	= 0;						// Frequency (in minutes) of cache refresh
+$imgPerPage		= 18;						// Images per page (0 disables pagination)
+$cacheExpire	= 30;						// Frequency (in minutes) of cache refresh
 $verCheck		= 0;						// Set to 1 to enable update notifications
 
 
@@ -24,86 +24,87 @@ if ($_GET['page']) {
 }
 
 
+// Create log file if it does not exist, otherwise open log for writing
+if (!file_exists($logFile)) {
+	$log = fopen($logFile, "a");
+	fwrite($log,date("Y-m-d")." @ ".date("H:i:s")."  CREATED: $logFile\r\n\r\n");
+} else {
+	$log = fopen($logFile, "a");
+}
+
+// Create image directory if it doesn't exist
+if (!file_exists($galleryDir)) {
+	mkdir($galleryDir);
+	fwrite($log,date("Y-m-d")." @ ".date("H:i:s")."  CREATED: $galleryDir\r\n");
+}
+
+// Create thumbnail directory if it doesn't exist
+if (!file_exists($thumbsDir)) {
+	mkdir($thumbsDir);
+	fwrite($log,date("Y-m-d")." @ ".date("H:i:s")."  CREATED: $thumbsDir\r\n");
+}
+
+// Clean up thumbnail directory
+if ($dirHandle = opendir($thumbsDir)) {
+	while (($file = readdir($dirHandle)) !== false) {
+		if (isImage("$thumbsDir/$file")) {
+			$size = getimagesize("$thumbsDir/$file");
+			if (!file_exists("$galleryDir/$file") || $size[0] !== $thumbSize) {
+				unlink("$thumbsDir/$file");
+				fwrite($log,date("Y-m-d")." @ ".date("H:i:s")."  REMOVED: $thumbsDir/$file\r\n");
+			}
+		}
+	}
+	closedir($dirHandle);
+}
+
+// Alcohol! The cause of, and solution to, all of life's problems!
+
+// Create array from gallery directory
+if ($dirHandle = opendir($galleryDir)) {
+	while (($file = readdir($dirHandle)) !== false) {
+		if (isImage("$galleryDir/$file")) {
+			$images[] = $file;
+		}
+	}
+	closedir($dirHandle);
+}
+
+// Page varriables
+$totalImages = count($images);
+if ($imgPerPage <= 0 || $imgPerPage >= $totalImages) {
+	$imgStart = 0;
+	$imgEnd = $totalImages;
+} elseif ($imgPerPage > 0 && $imgPerPage < $totalImages) {
+	$totalPages = ceil($totalImages / $imgPerPage);
+	if ($_GET['page'] < 1) {
+		$currentPage = 1;
+	} elseif ($_GET['page'] > $totalPages) {
+		$currentPage = $totalPages;
+	} else {
+		$currentPage = $_GET['page'];
+	}
+	$imgStart = ($currentPage - 1) * $imgPerPage;
+	$currentPage * $imgPerPage > $totalImages ? $imgEnd = $totalImages : $imgEnd = $currentPage * $imgPerPage;
+}
+
+
 // *** START PAGE CACHING ***
 
 // Create cache directory if it doesn't exist
 $cacheDir = "ck-gallery/.cache";
-if (!file_exists($cacheDir) && $cacheExpire >= 1) {
+if (!file_exists($cacheDir) && $cacheExpire > 0) {
 	mkdir($cacheDir);
 }
 $cacheFile = "$cacheDir/page$currentPage-cached.html";
 $cacheTime = $cacheExpire * 60;
 
 // Serve from the cache if it is younger than $cacheTime
-if (file_exists($cacheFile) && time() - $cacheTime < filemtime($cacheFile) && $cacheExpire >= 1) {
+if (file_exists($cacheFile) && time() - $cacheTime < filemtime($cacheFile) && $cacheExpire > 0) {
 	include($cacheFile);
 	echo "<!-- Cached page: created ".date('H:i:s', filemtime($cacheFile))." / expires ".date('H:i:s', (filemtime($cacheFile)) + $cacheTime)." -->\n";
 } else {
 	ob_start();
-
-	// Create log file if it does not exist, otherwise open log for writing
-	if (!file_exists($logFile)) {
-		$log = fopen($logFile, "a");
-		fwrite($log,date("Y-m-d")." @ ".date("H:i:s")."  CREATED: $logFile\r\n\r\n");
-	} else {
-		$log = fopen($logFile, "a");
-	}
-
-	// Create image directory if it doesn't exist
-	if (!file_exists($galleryDir)) {
-		mkdir($galleryDir);
-		fwrite($log,date("Y-m-d")." @ ".date("H:i:s")."  CREATED: $galleryDir\r\n");
-	}
-
-	// Create thumbnail directory if it doesn't exist
-	if (!file_exists($thumbsDir)) {
-		mkdir($thumbsDir);
-		fwrite($log,date("Y-m-d")." @ ".date("H:i:s")."  CREATED: $thumbsDir\r\n");
-	}
-
-	// Clean up thumbnail directory
-	if ($dirHandle = opendir($thumbsDir)) {
-		while (($file = readdir($dirHandle)) !== false) {
-			if (isImage("$thumbsDir/$file")) {
-				$size = getimagesize("$thumbsDir/$file");
-				if (!file_exists("$galleryDir/$file") || $size[0] !== $thumbSize) {
-					unlink("$thumbsDir/$file");
-					fwrite($log,date("Y-m-d")." @ ".date("H:i:s")."  REMOVED: $thumbsDir/$file\r\n");
-				}
-			}
-		}
-		closedir($dirHandle);
-	}
-
-	// Alcohol! The cause of, and solution to, all of life's problems!
-
-	// Create array from gallery directory
-	if ($dirHandle = opendir($galleryDir)) {
-		while (($file = readdir($dirHandle)) !== false) {
-			if (isImage("$galleryDir/$file")) {
-				$images[] = $file;
-			}
-		}
-		closedir($dirHandle);
-	}
-
-	// Page varriables
-	$totalImages = count($images);
-	if ($imgPerPage <= 0 || $imgPerPage >= $totalImages) {
-		$imgStart = 0;
-		$imgEnd = $totalImages;
-	} elseif ($imgPerPage > 0 && $imgPerPage < $totalImages) {
-		$totalPages = ceil($totalImages / $imgPerPage);
-		if ($_GET['page'] < 1) {
-			$currentPage = 1;
-		} elseif ($_GET['page'] > $totalPages) {
-			$currentPage = $totalPages;
-		} else {
-			$currentPage = $_GET['page'];
-		}
-		$imgStart = ($currentPage - 1) * $imgPerPage;
-		$currentPage * $imgPerPage > $totalImages ? $imgEnd = $totalImages : $imgEnd = $currentPage * $imgPerPage;
-	}
 
 	// Opening markup
 	echo("<!-- Start CK-Gallery v$version - Created by, Chris Kankiewicz <http://www.ChrisKankiewicz.com> -->\r\n");
@@ -262,9 +263,9 @@ function isImage($fileName) {
 		@$imgInfo = getimagesize($fileName);
 
 		$imgType = array(
-		IMAGETYPE_JPEG,
-		IMAGETYPE_GIF,
-		IMAGETYPE_PNG,
+			IMAGETYPE_JPEG,
+			IMAGETYPE_GIF,
+			IMAGETYPE_PNG,
 		);
 
 		if (in_array($imgInfo[2],$imgType))

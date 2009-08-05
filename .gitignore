@@ -10,6 +10,8 @@
 # Ignore all log files
 *.log
 
+# Ignore cache files
+ck-gallery/.cache/*.html
 
 # Ignore all images
 *.jpg
