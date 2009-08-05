@@ -1,8 +1,11 @@
 # Ignore Eclipse files
 .buildpath
-.htaccess
 .project
 .settings/
+
+# Ignore most .htaccess files
+.htaccess
+!ck-gallery/.cache/.htaccess
 
 # Ignore all log files
 *.log
