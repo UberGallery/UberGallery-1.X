@@ -1,6 +1,12 @@
 CK-Gallery Change Log
 ----------------------------------------
 
+  [ Changes to 1.4.1 ]
+
+    - Re-fixed major code injection vulnerability
+    - Updated documentation
+    - Slight formatting changes
+
   [ Changes to 1.4.0 ]
 
     - Fixed major code injection vulnerability

@@ -14,7 +14,11 @@
 ck-gallery/.cache/*.html
 
 # Ignore all images
-*.jpg
-*.png
-*.gif
-*.jpeg
+ck-gallery/images/*.jpg
+ck-gallery/images/thumbs/*.jpg
+ck-gallery/images/*.png
+ck-gallery/images/thumbs/*.png
+ck-gallery/images/*.gif
+ck-gallery/images/thumbs/*.gif
+ck-gallery/images/*.jpeg
+ck-gallery/images/thumbs/*.jpeg
