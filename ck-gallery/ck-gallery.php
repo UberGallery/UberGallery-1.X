@@ -3,18 +3,18 @@
 // Customize your gallery by changing the following variables. If a variable
 // is contained within quotes make sure you don't delete the quotes.
 
-$galleryDir		= "ck-gallery/images";		// Original images directory (No trailing slash!)
-$thumbsDir		= "$galleryDir/thumbs";		// Thumbnails directory (No trailing slash!)
-$logFile		= "ck-gallery.log";			// Directory/Name of log file
-$thumbSize		= 100;						// Thumbnail width/height in pixels
-$imgPerPage		= 0;						// Images per page (0 disables pagination)
-$cacheExpire	= 0;						// Frequency (in minutes) of cache refresh
-$verCheck		= 0;						// Set to 1 to enable update notifications
+$galleryDir  = "ck-gallery/images";  // Original images directory (No trailing slash!)
+$thumbsDir	 = "$galleryDir/thumbs"; // Thumbnails directory (No trailing slash!)
+$logFile     = "ck-gallery.log";     // Directory/Name of log file
+$thumbSize   = 100;                  // Thumbnail width/height in pixels
+$imgPerPage  = 0;                    // Images per page (0 disables pagination)
+$cacheExpire = 0;                    // Frequency (in minutes) of cache refresh
+$verCheck    = 0;                    // Set to 1 to enable update notifications
 
 
 // *** DO NOT EDIT ANYTHING BELOW HERE UNLESS YOU ARE A PHP NINJA ***
 
-$version = "1.4.0"; // File version
+$version = "1.4.1"; // File version
 
 if ($_GET['page']) {
 	// Sanitize input and set current page
@@ -82,7 +82,7 @@ if ($imgPerPage <= 0 || $imgPerPage >= $totalImages) {
 	} elseif ($_GET['page'] > $totalPages) {
 		$currentPage = $totalPages;
 	} else {
-		$currentPage = $_GET['page'];
+		$currentPage = (integer) $_GET['page'];
 	}
 	$imgStart = ($currentPage - 1) * $imgPerPage;
 	$currentPage * $imgPerPage > $totalImages ? $imgEnd = $totalImages : $imgEnd = $currentPage * $imgPerPage;
