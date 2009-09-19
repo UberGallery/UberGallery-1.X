@@ -11,7 +11,7 @@ body {
   width: 100%; /* Leave this value, change width below */
 }
 
-#ck-gallery {
+#ubergallery {
   background-color: #969696;
   border-left: 5px solid #646464;
   border-right: 5px solid #646464;
@@ -20,7 +20,7 @@ body {
   width: 708px; /* Change gallery width here */
 }
 
-#ck-gallery img {
+#ubergallery img {
   background-color: #FFF;
   border: 1px solid #CCC;
   float: left;
@@ -28,18 +28,18 @@ body {
   padding: 3px;
 }
 
-#ck-gallery img:hover {
+#ubergallery img:hover {
   border: 1px solid #000;
 }
 
-#ck-gallery div.hr { /* IE hack */
+#ubergallery div.hr { /* IE hack */
   background-color: #323232;
   border: 0;
   height: 2px;
   margin: .5em 0 .2em;
 }
 
-#ck-gallery div.hr hr { /* IE hack */
+#ubergallery div.hr hr { /* IE hack */
   display: none;
 }
 
@@ -48,7 +48,7 @@ body {
   font-size: .8em;
 }
 
-#ck-notice {
+#uber-notice {
   background-color: #AAA;
   border: 1px solid #323232;
   font-size: .8em;
@@ -66,7 +66,7 @@ body {
 *  PAGINATION  *
 ***************/
 
-#ck-pagination {
+#uber-pagination {
   float: left;
   font-size: .8em;
   font-weight: bold;
@@ -75,7 +75,7 @@ body {
   text-align: center;
 }
 
-#ck-pagination li {
+#uber-pagination li {
   background-color: #969696;
   border: 1px solid #323232;
   display: block;
@@ -84,25 +84,25 @@ body {
   margin: 0 5px 0 0 !important;
 }
 
-#ck-pagination li:hover {
+#uber-pagination li:hover {
   background-color: #757575;
 }
 
-#ck-pagination li a {
+#uber-pagination li a {
   color: #323232;
   display: block;
   padding: 2px 5px;
   text-decoration: none;
 }
 
-#ck-pagination li.current-page {
+#uber-pagination li.current-page {
   background-color: #323232;
   border: 1px solid #323232;
   color: #969696;
   padding: 2px 5px;
 }
 
-#ck-pagination li.inactive {
+#uber-pagination li.inactive {
   background-color: #969696;
   border: 1px solid #646464;
   color: #646464;
@@ -110,4 +110,4 @@ body {
   padding: 2px 5px;
 }
 
-/* gallery.css Created by, Chris Kankiewicz <http://web-geek.net/ck-gallery> */
+/* gallery.css Created by, Chris Kankiewicz <http://web-geek.net/ubergallery> */

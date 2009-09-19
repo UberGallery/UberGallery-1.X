@@ -1,20 +1,20 @@
-<?php // CK-Gallery by, Chris Kankiewicz (http://www.web-geek.net)
+<?php // UberGallery by, Chris Kankiewicz (http://www.web-geek.net)
 
 // Customize your gallery by changing the following variables. If a variable
 // is contained within quotes make sure you don't delete the quotes.
 
-$galleryDir		= "ck-gallery/images";	// Original images directory (No trailing slash!)
-$thumbsDir		= "$galleryDir/thumbs";	// Thumbnails directory (No trailing slash!)
-$logFile		= "ck-gallery.log";		// Directory/Name of log file
-$thumbSize		= 100;					// Thumbnail width/height in pixels
-$imgPerPage		= 0;					// Images per page (0 disables pagination)
-$cacheExpire	= 0;					// Frequency (in minutes) of cache refresh
-$verCheck		= 0;					// Set to 1 to enable update notifications
+$galleryDir		= "ubergallery/images";		// Original images directory (No trailing slash!)
+$thumbsDir		= "$galleryDir/thumbs";		// Thumbnails directory (No trailing slash!)
+$logFile		= "ubergallery.log";		// Directory/Name of log file
+$thumbSize		= 100;						// Thumbnail width/height in pixels
+$imgPerPage		= 0;						// Images per page (0 disables pagination)
+$cacheExpire	= 0;						// Frequency (in minutes) of cache refresh
+$verCheck		= 0;						// Set to 1 to enable update notifications
 
 
 // *** DO NOT EDIT ANYTHING BELOW HERE UNLESS YOU ARE A PHP NINJA ***
 
-$version = "1.4.1"; // File version
+$version = "1.5.0"; // File version
 
 if ($_GET['page']) {
 	// Sanitize input and set current page
@@ -92,7 +92,7 @@ if ($imgPerPage <= 0 || $imgPerPage >= $totalImages) {
 // *** START PAGE CACHING ***
 
 // Create cache directory if it doesn't exist
-$cacheDir = "ck-gallery/.cache";
+$cacheDir = "ubergallery/.cache";
 if (!file_exists($cacheDir) && $cacheExpire > 0) {
 	mkdir($cacheDir);
 }
@@ -107,8 +107,8 @@ if (file_exists($cacheFile) && time() - $cacheTime < filemtime($cacheFile) && $c
 	ob_start();
 
 	// Opening markup
-	echo("<!-- Start CK-Gallery v$version - Created by, Chris Kankiewicz <http://www.ChrisKankiewicz.com> -->\r\n");
-	echo("<div id=\"gallery-wrapper\">\r\n  <div id=\"ck-gallery\">\r\n");
+	echo("<!-- Start UberGallery v$version - Created by, Chris Kankiewicz <http://www.ChrisKankiewicz.com> -->\r\n");
+	echo("<div id=\"gallery-wrapper\">\r\n  <div id=\"ubergallery\">\r\n");
 
 	for ($x = $imgStart; $x < $imgEnd; $x++) {
 		$filePath = "$galleryDir/$images[$x]";
@@ -171,7 +171,7 @@ if (file_exists($cacheFile) && time() - $cacheTime < filemtime($cacheFile) && $c
 	// If pagination enabled, create page navigation
 	if ($imgPerPage > 0 && $imgPerPage < $totalImages) {
 		$pageName = basename($_SERVER["PHP_SELF"]); // Get current page file name
-		echo("    <ul id=\"ck-pagination\" style=\"margin: 0 !important; padding: 0 !important;\">\r\n");
+		echo("    <ul id=\"uber-pagination\" style=\"margin: 0 !important; padding: 0 !important;\">\r\n");
 
 		// Previous arrow
 		$previousPage = $currentPage - 1;
@@ -190,25 +190,25 @@ if (file_exists($cacheFile) && time() - $cacheTime < filemtime($cacheFile) && $c
 	}
 
 	// Closing markup
-	echo("    <div id=\"credit\">Powered by, <a href=\"http://github.com/PHLAK/ck-gallery\">CK-Gallery</a></div>\r\n");
+	echo("    <div id=\"credit\">Powered by, <a href=\"http://github.com/PHLAK/ubergallery\">UberGallery</a></div>\r\n");
 
 	// Version check and notification
 	if ($verCheck == "1") {
-		$verInfo = @file("http://code.web-geek.net/ck-gallery/version-check.php?ver=$version");
+		$verInfo = @file("http://code.web-geek.net/ubergallery/version-check.php?ver=$version");
 		$verInfo = @implode($verInfo);
 		if ($verInfo == "upgrade") {
 			echo("    <div class=\"clear\"></div>\r\n");
-			echo("    <div id=\"ck-notice\">A new version of CK-Gallery is availabe. <a href=\"http://code.web-geek.net/ck-gallery\" target=\"_blank\">Get the latest version here</a>.</div>");
+			echo("    <div id=\"uber-notice\">A new version of UberGallery is availabe. <a href=\"http://code.web-geek.net/ubergallery\" target=\"_blank\">Get the latest version here</a>.</div>");
 		} elseif ($verInfo == "development") {
 			echo("    <div class=\"clear\"></div>\r\n");
-			echo("    <div id=\"ck-notice\">This is a development version of CK-Gallery.</div>\r\n");
+			echo("    <div id=\"uber-notice\">This is a development version of UberGallery.</div>\r\n");
 		}
 	}
 
 	echo("    <div class=\"clear\"></div>\r\n  </div>\r\n</div>\r\n");
 	echo("<!-- Page $currentPage of $totalPages -->\r\n");
 
-	echo("<!-- End CK-Gallery - Licensed under the GNU Public License version 3.0 -->\r\n");
+	echo("<!-- End UberGallery - Licensed under the GNU Public License version 3.0 -->\r\n");
 
 	fclose($log); // Close log
 

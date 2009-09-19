@@ -3,18 +3,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-  <title>CK Gallery</title>
-  <link rel="stylesheet" type="text/css" href="ck-gallery/css/ck-gallery.css" />
-  <link rel="stylesheet" type="text/css" href="ck-gallery/thickbox/thickbox.css" />
+  <title>UberGallery</title>
+  <link rel="stylesheet" type="text/css" href="ubergallery/css/ubergallery.css" />
+  <link rel="stylesheet" type="text/css" href="ubergallery/thickbox/thickbox.css" />
 </head>
 <?php flush() ?>
 <body>
 
-<?php include_once('ck-gallery/ck-gallery.php'); ?>
+<?php include_once('ubergallery/ubergallery.php'); ?>
 
 <!-- THICKBOX -->
-<script type="text/javascript" src="ck-gallery/thickbox/jquery.js"></script>
-<script type="text/javascript" src="ck-gallery/thickbox/thickbox.js"></script>
+<script type="text/javascript" src="ubergallery/thickbox/jquery.js"></script>
+<script type="text/javascript" src="ubergallery/thickbox/thickbox.js"></script>
 <!-- /THICKBOX -->
 
 <?php if ($gzip == "1") echo("<!-- Page served with gzip compression -->\r\n"); ?>
