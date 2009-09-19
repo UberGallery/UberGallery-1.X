@@ -5,20 +5,20 @@
 
 # Ignore most .htaccess files
 .htaccess
-!ck-gallery/.cache/.htaccess
+!ubergallery/.cache/.htaccess
 
 # Ignore all log files
 *.log
 
 # Ignore cache files
-ck-gallery/.cache/*.html
+ubergallery/.cache/*.html
 
 # Ignore all images
-ck-gallery/images/*.jpg
-ck-gallery/images/thumbs/*.jpg
-ck-gallery/images/*.png
-ck-gallery/images/thumbs/*.png
-ck-gallery/images/*.gif
-ck-gallery/images/thumbs/*.gif
-ck-gallery/images/*.jpeg
-ck-gallery/images/thumbs/*.jpeg
+ubergallery/images/*.jpg
+ubergallery/images/thumbs/*.jpg
+ubergallery/images/*.png
+ubergallery/images/thumbs/*.png
+ubergallery/images/*.gif
+ubergallery/images/thumbs/*.gif
+ubergallery/images/*.jpeg
+ubergallery/images/thumbs/*.jpeg
