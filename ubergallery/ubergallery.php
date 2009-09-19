@@ -1,4 +1,4 @@
-<?php // UberGallery by, Chris Kankiewicz (http://www.web-geek.net)
+<?php // UberGallery by, Chris Kankiewicz (http://www.ubergallery.net)
 
 // Customize your gallery by changing the following variables. If a variable
 // is contained within quotes make sure you don't delete the quotes.
