@@ -1,7 +1,7 @@
-CK-Gallery
+UberGallery
 ------------------------------------------------------------------
-CK-Gallery is a simple, yet powerful, PHP photo gallery that will basically 
-manage itself for you. CK-Gallery supports .jpg, .gif & .png image types, and 
+UberGallery is a simple, yet powerful, PHP photo gallery that will basically 
+manage itself for you. UberGallery supports .jpg, .gif & .png image types, and 
 will automatically creates thumbnails on the fly. The main feature of this 
 gallery is it automatically outputs XHTML compliant markup for inclusion on a 
 web page.
