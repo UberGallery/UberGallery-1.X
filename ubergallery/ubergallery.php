@@ -5,7 +5,7 @@
 
 $galleryDir		= "ubergallery/images";		// Original images directory (No trailing slash!)
 $thumbsDir		= "$galleryDir/thumbs";		// Thumbnails directory (No trailing slash!)
-$logFile		= "ubergallery.log";		// Directory/Name of log file
+$logFile		= "ubergallery/log.txt";	// Directory/Name of log file
 $thumbSize		= 100;						// Thumbnail width/height in pixels
 $imgPerPage		= 0;						// Images per page (0 disables pagination)
 $cacheExpire	= 0;						// Frequency (in minutes) of cache refresh
