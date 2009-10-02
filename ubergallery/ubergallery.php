@@ -8,13 +8,13 @@ $thumbsDir		= "$galleryDir/thumbs";		// Thumbnails directory (No trailing slash!
 $logFile		= "ubergallery/log.txt";	// Directory/Name of log file
 $thumbSize		= 100;						// Thumbnail width/height in pixels
 $imgPerPage		= 0;						// Images per page (0 disables pagination)
-$cacheExpire	= 30;						// Frequency (in minutes) of cache refresh
+$cacheExpire	= 0;						// Frequency (in minutes) of cache refresh
 $verCheck		= 0;						// Set to 1 to enable update notifications
 
 
 // *** DO NOT EDIT ANYTHING BELOW HERE UNLESS YOU ARE A PHP NINJA ***
 
-$version = "1.5.1"; // File version
+$version = "1.5.1"; // Gallery version
 
 if ($_GET['page']) {
 	// Sanitize input and set current page

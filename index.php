@@ -4,6 +4,7 @@
 
 <head>
   <title>UberGallery</title>
+  <link rel="shortcut icon" href="images/images.png" />
   <link rel="stylesheet" type="text/css" href="ubergallery/css/ubergallery.css" />
   <link rel="stylesheet" type="text/css" href="ubergallery/thickbox/thickbox.css" />
 </head>

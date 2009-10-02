@@ -1,6 +1,12 @@
 UberGallery Change Log
 ----------------------------------------
 
+  [ Changes to 1.5.1 ]
+
+    - Modified caching to increase efficiency
+    - Move log to ubergallery/log.txt
+    - Added favicon to default index.php
+
   [ Changes to 1.5.0 ]
 
     - CK-Gallery is now known as UberGallery
