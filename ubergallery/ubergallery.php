@@ -8,13 +8,13 @@ $thumbsDir		= "$galleryDir/thumbs";		// Thumbnails directory (No trailing slash!
 $logFile		= "ubergallery/log.txt";	// Directory/Name of log file
 $thumbSize		= 100;						// Thumbnail width/height in pixels
 $imgPerPage		= 0;						// Images per page (0 disables pagination)
-$cacheExpire	= 0;						// Frequency (in minutes) of cache refresh
+$cacheExpire	= 30;						// Frequency (in minutes) of cache refresh
 $verCheck		= 0;						// Set to 1 to enable update notifications
 
 
 // *** DO NOT EDIT ANYTHING BELOW HERE UNLESS YOU ARE A PHP NINJA ***
 
-$version = "1.5.0"; // File version
+$version = "1.5.1"; // File version
 
 if ($_GET['page']) {
 	// Sanitize input and set current page
@@ -103,122 +103,122 @@ $cacheTime = $cacheExpire * 60;
 if (file_exists($cacheFile) && time() - $cacheTime < filemtime($cacheFile) && $cacheExpire > 0) {
 	include($cacheFile);
 	echo "<!-- Cached page: created ".date('H:i:s', filemtime($cacheFile))." / expires ".date('H:i:s', (filemtime($cacheFile)) + $cacheTime)." -->\n";
-} else {
-	ob_start();
+	die();
+}
+ob_start();
 
-	// Opening markup
-	echo("<!-- Start UberGallery v$version - Created by, Chris Kankiewicz <http://www.ChrisKankiewicz.com> -->\r\n");
-	echo("<div id=\"gallery-wrapper\">\r\n  <div id=\"ubergallery\">\r\n");
+// Opening markup
+echo("<!-- Start UberGallery v$version - Created by, Chris Kankiewicz <http://www.ChrisKankiewicz.com> -->\r\n");
+echo("<div id=\"gallery-wrapper\">\r\n  <div id=\"ubergallery\">\r\n");
 
-	for ($x = $imgStart; $x < $imgEnd; $x++) {
-		$filePath = "$galleryDir/$images[$x]";
+for ($x = $imgStart; $x < $imgEnd; $x++) {
+	$filePath = "$galleryDir/$images[$x]";
 
-		// Convert file name and extension for processing
-		if (ctype_upper(pathinfo($filePath,PATHINFO_EXTENSION))
-		|| strpos(basename($filePath),' ') !== false
-		|| strpos($filePath,'.jpeg') !== false) {
+	// Convert file name and extension for processing
+	if (ctype_upper(pathinfo($filePath,PATHINFO_EXTENSION))
+	|| strpos(basename($filePath),' ') !== false
+	|| strpos($filePath,'.jpeg') !== false) {
 
-			$source = "$filePath";
-			$fileParts = pathinfo($filePath); // Create array of file parts
-			$ext = $fileParts['extension']; // Original extension
-			$name = basename($filePath, ".$ext"); // Original file name without extension
-			$dir = $fileParts['dirname']; // Directory path
+		$source = "$filePath";
+		$fileParts = pathinfo($filePath); // Create array of file parts
+		$ext = $fileParts['extension']; // Original extension
+		$name = basename($filePath, ".$ext"); // Original file name without extension
+		$dir = $fileParts['dirname']; // Directory path
 
-			// Change extension to all lowercase
-			if (ctype_upper($ext)) {
-				$ext = strtolower($ext);
-			}
-
-			// Convert .jpeg to .jpg
-			if ($ext == 'jpeg') {
-				$ext = 'jpg';
-			}
-
-			// Replace spaces with underscores
-			if (strpos($name,' ') !== false) {
-				$extOld = $fileParts['extension'];
-				$name = str_replace(' ','_',basename($filePath, ".$extOld"));
-			}
-
-			$destination = "$dir/$name.$ext";
-
-			// Rename file and array element
-			if (rename($source,"$dir/$name.tmp")) {
-				if (rename("$dir/$name.tmp",$destination)) {
-					$images[$x] = "$name.$ext";
-					fwrite($log,date("Y-m-d")." @ ".date("H:i:s")."  RENAMED: $source to $destination\r\n");
-				}
-			}
+		// Change extension to all lowercase
+		if (ctype_upper($ext)) {
+			$ext = strtolower($ext);
 		}
 
-		$filePath = "$galleryDir/$images[$x]";
-		$thumbPath = "$thumbsDir/$images[$x]";
-
-		// Create thumbnail if it doesn't already exist
-		if (!file_exists("$thumbPath")) {
-			createThumb("$filePath","$thumbPath",$thumbSize);
-			fwrite($log,date("Y-m-d")." @ ".date("H:i:s")."  CREATED: $thumbsDir/$images[$x]\r\n");
-		}
-		// Create XHTML compliant markup
-		$noExt = substr($images[$x],0,strrpos($images[$x],'.'));
-		$altText = str_replace("_"," ",$noExt);
-		echo "    <a href=\"$filePath\" title=\"$altText\" class=\"thickbox\" rel=\"photo-gallery\"><img src=\"$thumbPath\" alt=\"$altText\"/></a>\r\n";
-	}
-
-	// Clear float, create horizontal rule
-	echo("    <div class=\"clear\"></div><div class=\"hr\"><hr /></div>\r\n");
-
-	// If pagination enabled, create page navigation
-	if ($imgPerPage > 0 && $imgPerPage < $totalImages) {
-		$pageName = basename($_SERVER["PHP_SELF"]); // Get current page file name
-		echo("    <ul id=\"uber-pagination\" style=\"margin: 0 !important; padding: 0 !important;\">\r\n");
-
-		// Previous arrow
-		$previousPage = $currentPage - 1;
-		echo("      <li".($currentPage > 1 ? "><a href=\"$pageName?page=$previousPage\" title=\"Previous Page\">&lt;</a>" : " class=\"inactive\">&lt;")."</li>\r\n");
-
-		// Page links
-		for ($x = 1; $x <= $totalPages; $x++) {
-			echo("      <li".($x == $currentPage ? " class=\"current-page\">$x" : "><a href=\"$pageName?page=$x\" title=\"Page $x\">$x</a>")."</li>\r\n");
+		// Convert .jpeg to .jpg
+		if ($ext == 'jpeg') {
+			$ext = 'jpg';
 		}
 
-		// Next arrow
-		$nextPage = $currentPage + 1;
-		echo("      <li".($currentPage < $totalPages ? "><a href=\"$pageName?page=$nextPage\" title=\"Next Page\">&gt;</a>" : " class=\"inactive\">&gt;")."</li>\r\n");
+		// Replace spaces with underscores
+		if (strpos($name,' ') !== false) {
+			$extOld = $fileParts['extension'];
+			$name = str_replace(' ','_',basename($filePath, ".$extOld"));
+		}
 
-		echo("    </ul>\r\n");
-	}
+		$destination = "$dir/$name.$ext";
 
-	// Closing markup
-	echo("    <div id=\"credit\">Powered by, <a href=\"http://github.com/PHLAK/ubergallery\">UberGallery</a></div>\r\n");
-
-	// Version check and notification
-	if ($verCheck == "1") {
-		$verInfo = @file("http://code.web-geek.net/ubergallery/version-check.php?ver=$version");
-		$verInfo = @implode($verInfo);
-		if ($verInfo == "upgrade") {
-			echo("    <div class=\"clear\"></div>\r\n");
-			echo("    <div id=\"uber-notice\">A new version of UberGallery is availabe. <a href=\"http://code.web-geek.net/ubergallery\" target=\"_blank\">Get the latest version here</a>.</div>");
-		} elseif ($verInfo == "development") {
-			echo("    <div class=\"clear\"></div>\r\n");
-			echo("    <div id=\"uber-notice\">This is a development version of UberGallery.</div>\r\n");
+		// Rename file and array element
+		if (rename($source,"$dir/$name.tmp")) {
+			if (rename("$dir/$name.tmp",$destination)) {
+				$images[$x] = "$name.$ext";
+				fwrite($log,date("Y-m-d")." @ ".date("H:i:s")."  RENAMED: $source to $destination\r\n");
+			}
 		}
 	}
 
-	echo("    <div class=\"clear\"></div>\r\n  </div>\r\n</div>\r\n");
-	echo("<!-- Page $currentPage of $totalPages -->\r\n");
+	$filePath = "$galleryDir/$images[$x]";
+	$thumbPath = "$thumbsDir/$images[$x]";
 
-	echo("<!-- End UberGallery - Licensed under the GNU Public License version 3.0 -->\r\n");
-
-	fclose($log); // Close log
-
-	if ($cacheExpire > 0) {
-		// Cache the output to a file
-		$fp = fopen($cacheFile, 'w');
-		fwrite($fp, ob_get_contents());
-		fclose($fp);
-		ob_end_flush(); // Send the output to the browser
+	// Create thumbnail if it doesn't already exist
+	if (!file_exists("$thumbPath")) {
+		createThumb("$filePath","$thumbPath",$thumbSize);
+		fwrite($log,date("Y-m-d")." @ ".date("H:i:s")."  CREATED: $thumbsDir/$images[$x]\r\n");
 	}
+	// Create XHTML compliant markup
+	$noExt = substr($images[$x],0,strrpos($images[$x],'.'));
+	$altText = str_replace("_"," ",$noExt);
+	echo "    <a href=\"$filePath\" title=\"$altText\" class=\"thickbox\" rel=\"photo-gallery\"><img src=\"$thumbPath\" alt=\"$altText\"/></a>\r\n";
+}
+
+// Clear float, create horizontal rule
+echo("    <div class=\"clear\"></div><div class=\"hr\"><hr /></div>\r\n");
+
+// If pagination enabled, create page navigation
+if ($imgPerPage > 0 && $imgPerPage < $totalImages) {
+	$pageName = basename($_SERVER["PHP_SELF"]); // Get current page file name
+	echo("    <ul id=\"uber-pagination\" style=\"margin: 0 !important; padding: 0 !important;\">\r\n");
+
+	// Previous arrow
+	$previousPage = $currentPage - 1;
+	echo("      <li".($currentPage > 1 ? "><a href=\"$pageName?page=$previousPage\" title=\"Previous Page\">&lt;</a>" : " class=\"inactive\">&lt;")."</li>\r\n");
+
+	// Page links
+	for ($x = 1; $x <= $totalPages; $x++) {
+		echo("      <li".($x == $currentPage ? " class=\"current-page\">$x" : "><a href=\"$pageName?page=$x\" title=\"Page $x\">$x</a>")."</li>\r\n");
+	}
+
+	// Next arrow
+	$nextPage = $currentPage + 1;
+	echo("      <li".($currentPage < $totalPages ? "><a href=\"$pageName?page=$nextPage\" title=\"Next Page\">&gt;</a>" : " class=\"inactive\">&gt;")."</li>\r\n");
+
+	echo("    </ul>\r\n");
+}
+
+// Closing markup
+echo("    <div id=\"credit\">Powered by, <a href=\"http://github.com/PHLAK/ubergallery\">UberGallery</a></div>\r\n");
+
+// Version check and notification
+if ($verCheck == "1") {
+	$verInfo = @file("http://code.web-geek.net/ubergallery/version-check.php?ver=$version");
+	$verInfo = @implode($verInfo);
+	if ($verInfo == "upgrade") {
+		echo("    <div class=\"clear\"></div>\r\n");
+		echo("    <div id=\"uber-notice\">A new version of UberGallery is availabe. <a href=\"http://code.web-geek.net/ubergallery\" target=\"_blank\">Get the latest version here</a>.</div>");
+	} elseif ($verInfo == "development") {
+		echo("    <div class=\"clear\"></div>\r\n");
+		echo("    <div id=\"uber-notice\">This is a development version of UberGallery.</div>\r\n");
+	}
+}
+
+echo("    <div class=\"clear\"></div>\r\n  </div>\r\n</div>\r\n");
+echo("<!-- Page $currentPage of $totalPages -->\r\n");
+
+echo("<!-- End UberGallery - Licensed under the GNU Public License version 3.0 -->\r\n");
+
+fclose($log); // Close log
+
+if ($cacheExpire > 0) {
+	// Cache the output to a file
+	$fp = fopen($cacheFile, 'w');
+	fwrite($fp, ob_get_contents());
+	fclose($fp);
+	ob_end_flush(); // Send the output to the browser
 }
 
 

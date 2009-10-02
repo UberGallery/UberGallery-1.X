@@ -8,6 +8,7 @@
 !ubergallery/.cache/.htaccess
 
 # Ignore all log files
+ubergallery/log.txt
 *.log
 
 # Ignore cache files
