@@ -14,7 +14,7 @@ $verCheck		= 0;						// Set to 1 to enable update notifications
 
 // *** DO NOT EDIT ANYTHING BELOW HERE UNLESS YOU ARE A PHP NINJA ***
 
-$version = "1.5.2"; // Gallery version
+$version = "1.5.3"; // Gallery version
 
 if ($_GET['page']) {
 	// Sanitize input and set current page
@@ -194,7 +194,7 @@ if (file_exists($cacheFile) && time() - $cacheTime < filemtime($cacheFile) && $c
 	}
 
 	// Closing markup
-	echo("    <div id=\"credit\">Powered by, <a href=\"http://github.com/PHLAK/ubergallery\">UberGallery</a></div>\r\n");
+	echo("    <div id=\"credit\">Powered by, <a href=\"http://www.ubergallery.net\">UberGallery</a></div>\r\n");
 
 	// Version check and notification
 	if ($verCheck == "1") {
