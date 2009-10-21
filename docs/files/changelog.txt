@@ -1,7 +1,7 @@
 UberGallery Change Log
 ----------------------------------------
 
-  [ Changes to 1.5.3 ]
+  [ Changes to 1.6.0 ]
   
     - Updated credit link to ubergallery.net
     - Fixed CRLF's
