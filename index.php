@@ -5,8 +5,8 @@
 <head>
   <title>UberGallery</title>
   <link rel="shortcut icon" href="images/images.png" />
-  <link rel="stylesheet" type="text/css" href="ubergallery/css/ubergallery.css" />
-  <link rel="stylesheet" type="text/css" href="ubergallery/thickbox/thickbox.css" />
+  <link rel="stylesheet" type="text/css" href="css/ubergallery.css" />
+  <link rel="stylesheet" type="text/css" href="thickbox/thickbox.css" />
 </head>
 <?php flush() ?>
 <body>
@@ -14,8 +14,8 @@
 <?php include_once('ubergallery/ubergallery.php'); ?>
 
 <!-- THICKBOX -->
-<script type="text/javascript" src="ubergallery/thickbox/jquery.js"></script>
-<script type="text/javascript" src="ubergallery/thickbox/thickbox.js"></script>
+<script type="text/javascript" src="thickbox/jquery.js"></script>
+<script type="text/javascript" src="thickbox/thickbox.js"></script>
 <!-- /THICKBOX -->
 
 <?php if ($gzip == "1") echo("<!-- Page served with gzip compression -->\r\n"); ?>
