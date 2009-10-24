@@ -8,7 +8,7 @@ $galleryDir		= "ubergallery/images";			// Original images directory (No trailing
 $thumbsDir		= "$galleryDir/thumbs";			// Thumbnails directory (No trailing slash!)
 $logFile		= "ubergallery/log.txt";		// Directory/Name of log file
 $thumbSize		= 100;							// Thumbnail width/height in pixels
-$imgPerPage		= 0;							// Images per page (0 disables pagination)
+$imgPerPage		= 12;							// Images per page (0 disables pagination)
 $cacheExpire	= 0;							// Frequency (in minutes) of cache refresh
 $verCheck		= 0;							// Set to 1 to enable update notifications
 
@@ -112,7 +112,7 @@ if (file_exists($cacheFile) && time() - $cacheTime < filemtime($cacheFile) && $c
 	echo("<!-- Start UberGallery v$version - Created by, Chris Kankiewicz <http://www.ChrisKankiewicz.com> -->\r\n");
 	echo("<div id=\"gallery-wrapper\">\r\n");
 	echo("  <div id=\"gallery-constraint\">\r\n");
-	echo("    <div id=\"gallery-header\">$galleryTitle</div>");
+	echo("    <div id=\"gallery-header\">$galleryTitle</div>\r\n");
 	echo("    <div id=\"gallery-images\" class=\"clearfix\">\r\n");
 
 	for ($x = $imgStart; $x < $imgEnd; $x++) {
@@ -167,7 +167,7 @@ if (file_exists($cacheFile) && time() - $cacheTime < filemtime($cacheFile) && $c
 		// Create XHTML compliant markup
 		$noExt = substr($images[$x],0,strrpos($images[$x],'.'));
 		$altText = str_replace("_"," ",$noExt);
-		echo "    <a href=\"$filePath\" title=\"$altText\" class=\"thickbox\" rel=\"photo-gallery\"><img src=\"$thumbPath\" alt=\"$altText\"/></a>\r\n";
+		echo "      <a href=\"$filePath\" title=\"$altText\" class=\"thickbox\" rel=\"photo-gallery\"><img src=\"$thumbPath\" alt=\"$altText\"/></a>\r\n";
 	}
 	echo("    </div>\r\n");
 
@@ -177,31 +177,31 @@ if (file_exists($cacheFile) && time() - $cacheTime < filemtime($cacheFile) && $c
 	// If pagination enabled, create page navigation
 	if ($imgPerPage > 0 && $imgPerPage < $totalImages) {
 		$pageName = basename($_SERVER["PHP_SELF"]); // Get current page file name
-		echo("    <ul id=\"uber-pagination\" style=\"margin: 0 !important; padding: 0 !important;\">\r\n");
+		echo("      <ul id=\"uber-pagination\" style=\"margin: 0 !important; padding: 0 !important;\">\r\n");
 
 		// Pageination title
-		echo("      <li class=\"title\">Page $currentPage of $totalPages</li>\r\n");
+		echo("        <li class=\"title\">Page $currentPage of $totalPages</li>\r\n");
 
 		// Previous arrow
 		$previousPage = $currentPage - 1;
-		echo("      <li".($currentPage > 1 ? "><a href=\"$pageName?page=$previousPage\" title=\"Previous Page\">&lt;</a>" : " class=\"inactive\">&lt;")."</li>\r\n");
+		echo("        <li".($currentPage > 1 ? "><a href=\"$pageName?page=$previousPage\" title=\"Previous Page\">&lt;</a>" : " class=\"inactive\">&lt;")."</li>\r\n");
 
 		// Page links
 		for ($x = 1; $x <= $totalPages; $x++) {
-			echo("      <li".($x == $currentPage ? " class=\"current-page\">$x" : "><a href=\"$pageName?page=$x\" title=\"Page $x\">$x</a>")."</li>\r\n");
+			echo("        <li".($x == $currentPage ? " class=\"current-page\">$x" : "><a href=\"$pageName?page=$x\" title=\"Page $x\">$x</a>")."</li>\r\n");
 		}
 
 		// Next arrow
 		$nextPage = $currentPage + 1;
-		echo("      <li".($currentPage < $totalPages ? "><a href=\"$pageName?page=$nextPage\" title=\"Next Page\">&gt;</a>" : " class=\"inactive\">&gt;")."</li>\r\n");
+		echo("        <li".($currentPage < $totalPages ? "><a href=\"$pageName?page=$nextPage\" title=\"Next Page\">&gt;</a>" : " class=\"inactive\">&gt;")."</li>\r\n");
 
-		echo("    </ul>\r\n");
+		echo("      </ul>\r\n");
 	}
 
 	// Closing markup
-	echo("    <div id=\"credit\">Powered by, <a href=\"http://www.ubergallery.net\">UberGallery</a></div>\r\n");
+	echo("      <div id=\"credit\">Powered by, <a href=\"http://www.ubergallery.net\">UberGallery</a></div>\r\n");
 
-	echo("  </div>\r\n");
+	echo("    </div>\r\n  </div>\r\n</div>\r\n");
 
 	// Version check and notification
 	if ($verCheck == "1") {
