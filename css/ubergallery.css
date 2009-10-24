@@ -18,7 +18,7 @@ body {
 
 #gallery-constraint {
   margin: 1em auto;
-  width: 752px; /* Change gallery width here */
+  width: 740px; /* Change gallery width here */
 }
 
 #gallery-header {
@@ -36,7 +36,6 @@ body {
 
 #gallery-images {
   background-color: #FFF;
-  border-radius: 5px;
   padding: 10px;
 }
 
@@ -45,13 +44,17 @@ body {
   border: 1px solid #ACACAC;
   display: block;
   float: left;
-  margin: 4px !important;
+  margin: 5px !important;
   padding: 4px;
   -moz-border-radius: 3px;
 }
 
 #gallery-images a:hover {
   border: 1px solid #707070;
+}
+
+#gallery-images img {
+	border: none;
 }
 
 #uber-footer {
