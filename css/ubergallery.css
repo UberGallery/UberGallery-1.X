@@ -1,51 +1,83 @@
-/***************
-*  CK-GALLERY  *
-***************/
+/* ---------------------------------------- */
+/* ----|  UBER GALLERY  |------------------ */
+/* ---------------------------------------- */
+
+html {
+  font-size: 100%;
+}
 
 body {
-  background-color: #323232;
-  font-family: verdana, tahoma, arial, sans serif;
+  background: #323232 url(../images/bg.png) repeat top left;
+  font-family: sans-serif, serif;
+  font-size: 1em;
 }
 
 #gallery-wrapper {
   width: 100%; /* Leave this value, change width below */
 }
 
-#ubergallery {
-  background-color: #969696;
-  border-left: 5px solid #646464;
-  border-right: 5px solid #646464;
-  margin: 0 auto;
-  padding: 10px;
-  width: 708px; /* Change gallery width here */
+#gallery-constraint {
+  margin: 1em auto;
+  width: 752px; /* Change gallery width here */
 }
 
-#ubergallery img {
+#gallery-header {
+  background-color: #DDF;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: #369;
+  font-weight: bold;
+  padding: 8px 10px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+}
+
+#gallery-images {
   background-color: #FFF;
-  border: 1px solid #CCC;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+#gallery-images a {
+  background-color: #FFF;
+  border: 1px solid #ACACAC;
+  display: block;
   float: left;
-  margin: 5px !important;
-  padding: 3px;
+  margin: 4px !important;
+  padding: 4px;
+  -moz-border-radius: 3px;
 }
 
-#ubergallery img:hover {
-  border: 1px solid #000;
+#gallery-images a:hover {
+  border: 1px solid #707070;
 }
 
-#ubergallery div.hr { /* IE hack */
-  background-color: #323232;
-  border: 0;
-  height: 2px;
-  margin: .5em 0 .2em;
-}
-
-#ubergallery div.hr hr { /* IE hack */
-  display: none;
+#uber-footer {
+  background-color: #DDF;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: #369;
+  padding: 6px 10px;
+  -moz-border-radius-bottomleft: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
 }
 
 #credit {
   float: right;
   font-size: .8em;
+  margin: 4px 0;
+}
+
+#credit a {
+  color: #369;
+}
+
+#credit a:hover {
+  color: #333;
 }
 
 #uber-notice {
@@ -57,64 +89,76 @@ body {
   text-align: center;
 }
 
-.clear {
-  height: 0px !important;
-  clear: both;
-}
+/* --- CLEAR FIX --- */
 
-/***************
-*  PAGINATION  *
-***************/
+.clearfix:after {
+  content: ".";
+  display:block;
+  height:0;
+  clear:both;
+  visibility:hidden;}
+.clearfix {display:inline-block;}
+/* Hides from IE-mac \*/
+* html .clearfix { height:1%;}
+.clearfix {display:block;}
+/* End hide from IE-mac */
+
+
+/* ---------------------------------------- */
+/* ----|  PAGINATION  |-------------------- */
+/* ---------------------------------------- */
 
 #uber-pagination {
+  color: #369;
   float: left;
   font-size: .8em;
-  font-weight: bold;
   margin: 0 !important;
   padding: 0 !important;
   text-align: center;
 }
 
 #uber-pagination li {
-  background-color: #969696;
-  border: 1px solid #323232;
+  border: 1px solid transparent;
   display: block;
   float: left;
   list-style: none;
-  margin: 0 5px 0 0 !important;
+  margin: 0 2px 0 0 !important;
+  -moz-border-radius: 3px;
 }
 
 #uber-pagination li:hover {
-  background-color: #757575;
-}
-
-#uber-pagination li a {
-  color: #323232;
-  display: block;
-  padding: 2px 5px;
-  text-decoration: none;
+  background-color: #EFEFEF;
+  border: 1px solid #CCC;
 }
 
 #uber-pagination li.title {
-  background-color: #323232;
-  border: 1px solid #323232;
-  color: #969696;
-  padding: 2px 5px;
+  background: transparent url(../images/page_white_stack.png) no-repeat left center;
+  border: 1px solid transparent;
+  font-weight: normal;
+  padding: 3px 6px 3px 22px;
+}
+
+#uber-pagination li a, #uber-pagination li a:visited {
+  color: #369;
+  display: block;
+  padding: 3px 6px;
+  text-decoration: none;
 }
 
 #uber-pagination li.current-page {
-  background-color: #323232;
-  border: 1px solid #323232;
-  color: #969696;
-  padding: 2px 5px;
+   background-color: transparent;
+  border: 1px solid transparent;
+  color: #333;
+  font-weight: bold;
+  padding: 3px 6px;
 }
 
 #uber-pagination li.inactive {
-  background-color: #969696;
-  border: 1px solid #646464;
-  color: #646464;
+  background-color: transparent;
+  color: #ACACAC;
+  border: 1px solid transparent;
   display: block;
-  padding: 2px 5px;
+  padding: 3px 6px;
 }
 
-/* gallery.css Created by, Chris Kankiewicz <http://web-geek.net/ubergallery> */
+/* gallery.css Created by, Chris Kankiewicz <http://www.ubergallery.net> */

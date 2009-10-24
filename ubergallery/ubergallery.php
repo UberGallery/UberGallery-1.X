@@ -3,18 +3,19 @@
 // Customize your gallery by changing the following variables. If a variable
 // is contained within quotes make sure you don't delete the quotes.
 
-$galleryDir		= "ubergallery/images";		// Original images directory (No trailing slash!)
-$thumbsDir		= "$galleryDir/thumbs";		// Thumbnails directory (No trailing slash!)
-$logFile		= "ubergallery/log.txt";	// Directory/Name of log file
-$thumbSize		= 100;						// Thumbnail width/height in pixels
-$imgPerPage		= 0;						// Images per page (0 disables pagination)
-$cacheExpire	= 0;						// Frequency (in minutes) of cache refresh
-$verCheck		= 0;						// Set to 1 to enable update notifications
+$galleryTitle	= "UberGallery Image Gallery";	// Gallery title
+$galleryDir		= "ubergallery/images";			// Original images directory (No trailing slash!)
+$thumbsDir		= "$galleryDir/thumbs";			// Thumbnails directory (No trailing slash!)
+$logFile		= "ubergallery/log.txt";		// Directory/Name of log file
+$thumbSize		= 100;							// Thumbnail width/height in pixels
+$imgPerPage		= 0;							// Images per page (0 disables pagination)
+$cacheExpire	= 0;							// Frequency (in minutes) of cache refresh
+$verCheck		= 0;							// Set to 1 to enable update notifications
 
 
 // *** DO NOT EDIT ANYTHING BELOW HERE UNLESS YOU ARE A PHP NINJA ***
 
-$version = "1.5.3"; // Gallery version
+$version = "1.6.0"; // Gallery version
 
 if ($_GET['page']) {
 	// Sanitize input and set current page
@@ -109,7 +110,10 @@ if (file_exists($cacheFile) && time() - $cacheTime < filemtime($cacheFile) && $c
 
 	// Opening markup
 	echo("<!-- Start UberGallery v$version - Created by, Chris Kankiewicz <http://www.ChrisKankiewicz.com> -->\r\n");
-	echo("<div id=\"gallery-wrapper\">\r\n  <div id=\"ubergallery\">\r\n");
+	echo("<div id=\"gallery-wrapper\">\r\n");
+	echo("  <div id=\"gallery-constraint\">\r\n");
+	echo("    <div id=\"gallery-header\">$galleryTitle</div>");
+	echo("    <div id=\"gallery-images\" class=\"clearfix\">\r\n");
 
 	for ($x = $imgStart; $x < $imgEnd; $x++) {
 		$filePath = "$galleryDir/$images[$x]";
@@ -165,9 +169,10 @@ if (file_exists($cacheFile) && time() - $cacheTime < filemtime($cacheFile) && $c
 		$altText = str_replace("_"," ",$noExt);
 		echo "    <a href=\"$filePath\" title=\"$altText\" class=\"thickbox\" rel=\"photo-gallery\"><img src=\"$thumbPath\" alt=\"$altText\"/></a>\r\n";
 	}
+	echo("    </div>\r\n");
 
 	// Clear float, create horizontal rule
-	echo("    <div class=\"clear\"></div><div class=\"hr\"><hr /></div>\r\n");
+	echo("    <div id=\"uber-footer\" class=\"clearfix\">\r\n");
 
 	// If pagination enabled, create page navigation
 	if ($imgPerPage > 0 && $imgPerPage < $totalImages) {
@@ -196,20 +201,18 @@ if (file_exists($cacheFile) && time() - $cacheTime < filemtime($cacheFile) && $c
 	// Closing markup
 	echo("    <div id=\"credit\">Powered by, <a href=\"http://www.ubergallery.net\">UberGallery</a></div>\r\n");
 
+	echo("  </div>\r\n");
+
 	// Version check and notification
 	if ($verCheck == "1") {
 		$verInfo = @file("http://code.web-geek.net/ubergallery/version-check.php?ver=$version");
 		$verInfo = @implode($verInfo);
 		if ($verInfo == "upgrade") {
-			echo("    <div class=\"clear\"></div>\r\n");
-			echo("    <div id=\"uber-notice\">A new version of UberGallery is availabe. <a href=\"http://code.web-geek.net/ubergallery\" target=\"_blank\">Get the latest version here</a>.</div>");
+			echo("    <div id=\"uber-notice\" class=\"clearfix\">A new version of UberGallery is availabe. <a href=\"http://code.web-geek.net/ubergallery\" target=\"_blank\">Get the latest version here</a>.</div>");
 		} elseif ($verInfo == "development") {
-			echo("    <div class=\"clear\"></div>\r\n");
-			echo("    <div id=\"uber-notice\">This is a development version of UberGallery.</div>\r\n");
+			echo("    <div id=\"uber-notice\" class=\"clearfix\">This is a development version of UberGallery.</div>\r\n");
 		}
 	}
-
-	echo("    <div class=\"clear\"></div>\r\n  </div>\r\n</div>\r\n");
 	echo("<!-- Page $currentPage of $totalPages -->\r\n");
 
 	echo("<!-- End UberGallery - Licensed under the GNU Public License version 3.0 -->\r\n");
