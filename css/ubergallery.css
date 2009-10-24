@@ -81,12 +81,14 @@ body {
 }
 
 #uber-notice {
-  background-color: #AAA;
-  border: 1px solid #323232;
-  font-size: .8em;
+  background-color: #369;
+  color: #FFF;
   padding: 5px;
-  margin: 5px 0;
   text-align: center;
+}
+
+#uber-notice a, #uber-notice a:visited {
+  color: #FFF;
 }
 
 /* --- CLEAR FIX --- */

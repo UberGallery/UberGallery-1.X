@@ -8,14 +8,14 @@ $galleryDir		= "ubergallery/images";			// Original images directory (No trailing
 $thumbsDir		= "$galleryDir/thumbs";			// Thumbnails directory (No trailing slash!)
 $logFile		= "ubergallery/log.txt";		// Directory/Name of log file
 $thumbSize		= 100;							// Thumbnail width/height in pixels
-$imgPerPage		= 12;							// Images per page (0 disables pagination)
+$imgPerPage		= 0;							// Images per page (0 disables pagination)
 $cacheExpire	= 0;							// Frequency (in minutes) of cache refresh
 $verCheck		= 0;							// Set to 1 to enable update notifications
 
 
 // *** DO NOT EDIT ANYTHING BELOW HERE UNLESS YOU ARE A PHP NINJA ***
 
-$version = "1.6.0"; // Gallery version
+$version = "1.2.0"; // Gallery version
 
 if ($_GET['page']) {
 	// Sanitize input and set current page
@@ -171,7 +171,17 @@ if (file_exists($cacheFile) && time() - $cacheTime < filemtime($cacheFile) && $c
 	}
 	echo("    </div>\r\n");
 
-	// Clear float, create horizontal rule
+	// Version check and notification
+	if ($verCheck == "1") {
+		$verInfo = @file("http://www.ubergallery.net/version-check.php?ver=$version");
+		$verInfo = @implode($verInfo);
+		if ($verInfo == "upgrade") {
+			echo("    <div id=\"uber-notice\" class=\"clearfix\">A new version of UberGallery is availabe. <a href=\"http://www.ubergallery.net\" target=\"_blank\">Get the latest version here</a>.</div>");
+		} elseif ($verInfo == "development") {
+			echo("    <div id=\"uber-notice\" class=\"clearfix\">This is a development version of UberGallery.</div>\r\n");
+		}
+	}
+
 	echo("    <div id=\"uber-footer\" class=\"clearfix\">\r\n");
 
 	// If pagination enabled, create page navigation
@@ -201,18 +211,9 @@ if (file_exists($cacheFile) && time() - $cacheTime < filemtime($cacheFile) && $c
 	// Closing markup
 	echo("      <div id=\"credit\">Powered by, <a href=\"http://www.ubergallery.net\">UberGallery</a></div>\r\n");
 
-	echo("    </div>\r\n  </div>\r\n</div>\r\n");
-
-	// Version check and notification
-	if ($verCheck == "1") {
-		$verInfo = @file("http://code.web-geek.net/ubergallery/version-check.php?ver=$version");
-		$verInfo = @implode($verInfo);
-		if ($verInfo == "upgrade") {
-			echo("    <div id=\"uber-notice\" class=\"clearfix\">A new version of UberGallery is availabe. <a href=\"http://code.web-geek.net/ubergallery\" target=\"_blank\">Get the latest version here</a>.</div>");
-		} elseif ($verInfo == "development") {
-			echo("    <div id=\"uber-notice\" class=\"clearfix\">This is a development version of UberGallery.</div>\r\n");
-		}
-	}
+	echo("    </div>\r\n");
+	echo("  </div>\r\n");
+	echo("</div>\r\n");
 	echo("<!-- Page $currentPage of $totalPages -->\r\n");
 
 	echo("<!-- End UberGallery - Licensed under the GNU Public License version 3.0 -->\r\n");
