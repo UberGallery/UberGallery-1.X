@@ -4,6 +4,7 @@ UberGallery Change Log
   [ Changes to 1.6.0 ]
   
     - Updated credit link to ubergallery.net
+    - Updated license to MIT
     - Fixed CRLF's
 
   [ Changes to 1.5.2 ]
