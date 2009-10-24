@@ -42,11 +42,13 @@ body {
 #gallery-images a {
   background-color: #FFF;
   border: 1px solid #ACACAC;
+  border-radius: 3px;
   display: block;
   float: left;
   margin: 5px !important;
   padding: 4px;
   -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
 }
 
 #gallery-images a:hover {
