@@ -6,17 +6,19 @@
   <title>UberGallery</title>
   <link rel="shortcut icon" href="images/images.png" />
   <link rel="stylesheet" type="text/css" href="css/ubergallery.css" />
-  <link rel="stylesheet" type="text/css" href="thickbox/thickbox.css" />
-</head>
+  <link rel="stylesheet" type="text/css" href="facebox/facebox.css" />
+  <script type="text/javascript" src="facebox/jquery.js"></script>
+  <script type="text/javascript" src="facebox/facebox.js"></script>
+  <script type="text/javascript">
+  jQuery(document).ready(function($) {
+    $('a[rel*=facebox]').facebox({});
+  });
+  </script>
+</head> 
 <?php flush() ?>
 <body>
 
 <?php include_once('ubergallery/ubergallery.php'); ?>
-
-<!-- THICKBOX -->
-<script type="text/javascript" src="thickbox/jquery.js"></script>
-<script type="text/javascript" src="thickbox/thickbox.js"></script>
-<!-- /THICKBOX -->
 
 <?php if ($gzip == "1") echo("<!-- Page served with gzip compression -->\r\n"); ?>
 </body>
