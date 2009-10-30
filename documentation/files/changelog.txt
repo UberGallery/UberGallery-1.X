@@ -4,7 +4,8 @@ UberGallery Change Log
   [ Changed to 1.6.0 ]
   
     - Updated gallery styles for a cleaner look
-    - Retired dead project Thickbox in favor of Colorbox 
+    - Added a gallery title for SEO and customizability
+    - Retired dead project Thickbox in favor of Colorbox
     - Moved all non-essential files out of the ubergallery directory
 
   [ Changes to 1.5.3 ]
