@@ -167,7 +167,7 @@ if (file_exists($cacheFile) && time() - $cacheTime < filemtime($cacheFile) && $c
 		// Create XHTML compliant markup
 		$noExt = substr($images[$x],0,strrpos($images[$x],'.'));
 		$altText = str_replace("_"," ",$noExt);
-		echo "      <a href=\"$filePath\" title=\"$altText\" rel=\"facebox\"><img src=\"$thumbPath\" alt=\"$altText\"/></a>\r\n";
+		echo "      <a href=\"$filePath\" title=\"$altText\" rel=\"colorbox\"><img src=\"$thumbPath\" alt=\"$altText\"/></a>\r\n";
 	}
 	echo("    </div>\r\n");
 

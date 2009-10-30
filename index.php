@@ -6,12 +6,12 @@
   <title>UberGallery</title>
   <link rel="shortcut icon" href="images/images.png" />
   <link rel="stylesheet" type="text/css" href="css/ubergallery.css" />
-  <link rel="stylesheet" type="text/css" href="facebox/facebox.css" />
-  <script type="text/javascript" src="facebox/jquery.js"></script>
-  <script type="text/javascript" src="facebox/facebox.js"></script>
+  <link rel="stylesheet" type="text/css" href="colorbox/colorbox.css" />
+  <script type="text/javascript" src="colorbox/jquery.js"></script>
+  <script type="text/javascript" src="colorbox/jquery.colorbox.js"></script>
   <script type="text/javascript">
-  jQuery(document).ready(function($) {
-    $('a[rel*=facebox]').facebox({});
+  $(document).ready(function(){
+    $("a[rel='colorbox']").colorbox({ maxWidth: "75%", maxHeight: "75%", opacity: ".5"});
   });
   </script>
 </head> 
