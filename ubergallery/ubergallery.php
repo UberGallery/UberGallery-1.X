@@ -216,7 +216,7 @@ if (file_exists($cacheFile) && time() - $cacheTime < filemtime($cacheFile) && $c
 	echo("</div>\r\n");
 	echo("<!-- Page $currentPage of $totalPages -->\r\n");
 
-	echo("<!-- End UberGallery - Licensed under the GNU Public License version 3.0 -->\r\n");
+	echo("<!-- End UberGallery - Licensed under the MIT License <http://creativecommons.org/licenses/MIT/> -->\r\n");
 
 	fclose($log); // Close log
 
