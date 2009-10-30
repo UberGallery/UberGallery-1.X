@@ -11,7 +11,7 @@
   <script type="text/javascript" src="colorbox/jquery.colorbox.js"></script>
   <script type="text/javascript">
   $(document).ready(function(){
-    $("a[rel='colorbox']").colorbox({ maxWidth: "75%", maxHeight: "75%", opacity: ".5"});
+    $("a[rel='colorbox']").colorbox({ maxWidth: "90%", maxHeight: "90%", opacity: ".65"});
   });
   </script>
 </head> 
