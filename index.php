@@ -18,7 +18,7 @@
 <?php flush() ?>
 <body>
 
-<?php include_once('ubergallery/ubergallery.php'); ?>
+<?php include('ubergallery/ubergallery.php'); ?>
 
 <?php if ($gzip == "1") echo("<!-- Page served with gzip compression -->\r\n"); ?>
 </body>
