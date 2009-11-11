@@ -4,11 +4,11 @@
 // is contained within quotes make sure you don't delete the quotes.
 
 $galleryTitle	= "UberGallery Image Gallery";	// Gallery title
-$galleryDir		= "images";			// Original images directory (No trailing slash!)
-$thumbsDir		= ".ubergallery/.cache";			// Thumbnails directory (No trailing slash!)
+$galleryDir		= "images";						// Original images directory (No trailing slash!)
+$thumbsDir		= ".ubergallery/.cache";		// Thumbnails directory (No trailing slash!)
 $logFile		= ".ubergallery/log.txt";		// Directory/Name of log file
 $thumbSize		= 100;							// Thumbnail width/height in pixels
-$imgPerPage		= 30;							// Images per page (0 disables pagination)
+$imgPerPage		= 0;							// Images per page (0 disables pagination)
 $cacheExpire	= 0;							// Frequency (in minutes) of cache refresh
 $formatted		= true;							// Set to false to output bare (no styles) page
 $verCheck		= false;						// Set to true to enable update notifications
@@ -99,7 +99,7 @@ if ($imgPerPage <= 0 || $imgPerPage >= $totalImages) {
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-  <title>UberGallery</title>
+  <title><?php echo $galleryTitle; ?></title>
   <link rel="shortcut icon" href=".ubergallery/images/images.png" />
   <link rel="stylesheet" type="text/css" href=".ubergallery/css/ubergallery.css" />
   <link rel="stylesheet" type="text/css" href=".ubergallery/colorbox/colorbox.css" />
