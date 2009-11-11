@@ -5,21 +5,19 @@
 
 # Ignore most .htaccess files
 .htaccess
-!ubergallery/.cache/.htaccess
-
-# Ignore all log files
-ubergallery/log.txt
-*.log
 
 # Ignore cache files
-ubergallery/.cache/*.html
+.ubergallery/.cache/*
+!.ubergallery/.cache/.htaccess
+
+# Ignore all log files
+.ubergallery/log.txt
+*.log
+
+
 
 # Ignore all images
-ubergallery/images/*.jpg
-ubergallery/images/thumbs/*.jpg
-ubergallery/images/*.png
-ubergallery/images/thumbs/*.png
-ubergallery/images/*.gif
-ubergallery/images/thumbs/*.gif
-ubergallery/images/*.jpeg
-ubergallery/images/thumbs/*.jpeg
+images/*.jpg
+images/*.png
+images/*.gif
+images/*.jpeg
