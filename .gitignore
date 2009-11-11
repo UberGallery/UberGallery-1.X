@@ -14,8 +14,6 @@
 .ubergallery/log.txt
 *.log
 
-
-
 # Ignore all images
 images/*.jpg
 images/*.png
