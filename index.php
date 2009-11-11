@@ -5,7 +5,7 @@
 
 $galleryTitle	= "UberGallery Image Gallery";	// Gallery title
 $galleryDir		= ".ubergallery/images";						// Original images directory (No trailing slash!)
-$thumbsDir		= ".ubergallery/.cache";		// Thumbnails directory (No trailing slash!)
+$thumbsDir		= ".ubergallery/cache";		// Thumbnails directory (No trailing slash!)
 $logFile		= ".ubergallery/log.txt";		// Directory/Name of log file
 $thumbSize		= 100;							// Thumbnail width/height in pixels
 $imgPerPage		= 0;							// Images per page (0 disables pagination)
@@ -110,7 +110,7 @@ if ($imgPerPage <= 0 || $imgPerPage >= $totalImages) {
     $("a[rel='colorbox']").colorbox({maxWidth: "90%", maxHeight: "90%", opacity: ".5"});
   });
   </script>
-</head> 
+</head>
 <?php flush() ?>
 <body>
 <?php endif; ?>
@@ -119,7 +119,7 @@ if ($imgPerPage <= 0 || $imgPerPage >= $totalImages) {
 // *** START PAGE CACHING ***
 
 // Create cache directory if it doesn't exist
-$cacheDir = ".ubergallery/.cache";
+$cacheDir = ".ubergallery/cache";
 if (!file_exists($cacheDir) && $cacheExpire > 0) {
 	mkdir($cacheDir);
 }
