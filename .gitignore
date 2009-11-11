@@ -19,3 +19,6 @@
 .ubergallery/images/*.png
 .ubergallery/images/*.gif
 .ubergallery/images/*.jpeg
+
+# Do not ignore any .gitignore files
+!.gitignore
