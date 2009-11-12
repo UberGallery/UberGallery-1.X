@@ -138,7 +138,7 @@ documentation/
 |  |  github.png
 |  |  twitter.png
 |  |  ubergallery_logo.png
-|  index.html                    - This README file
+|  index.html                    - This documentation
 index.php                        - Main gallery script
 README                           - Basic README file
 </pre>
@@ -164,13 +164,16 @@ README                           - Basic README file
     <ol>
       <li>If you wish to change the name or location of the images folder, thumbnails
         folder or log file, or you would like to enable pagination, open
-        ubergallery/ubergallery.php and edit the variables found at the top.</li>
-      <li>Upload the entire ubergallery/ folder to your web server.</li>
+        index.php and edit the variables found at the top.</li>
+      <li>Rename index.php to ubergallery.php</li>
+      <li>Upload the newly created ubergallery.php and the entire .ubergallery/ folder 
+        to your web server.</li>
       <li>Insert the following code into the page where you would like the gallery
-        to be displayed: <pre>&lt;?php include_once('path-to-folder/ubergallery/ubergallery.php'); ?&gt;</pre></li>
-      <li>Copy the contentst of ubergallery/css/gallery.css into your own style sheet 
+        to be displayed: <pre>&lt;?php include_once('path/to/script/ubergallery.php'); ?&gt;</pre></li>
+      <li>Copy the contentst of .ubergallery/resoureces/css/gallery.css into your own style sheet 
         or include it in your page and edit it to your liking.</li>
-      <li>Upload your images to the images directory ("ubergallery/images" by default).</li>
+      <li>Upload your images to the images directory (.ubergallery/images/ by default).</li>
+      <li>Make the .ubergaller/cache/ directory wrightable by the web server.</li>
       <li>Navigate to the page in your browser and the script should generate thumbnails
         and display your images.</li>
     </ol>
