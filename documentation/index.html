@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-  <title>UberGallery</title>
+  <title>UberGallery Documentation</title>
   <link rel="stylesheet" type="text/css" href="css/style.css"  />
   <!--[if IE]><style type="text/css">@import "css/ie-fixes.css";</style><![endif]-->
   <link rel="shortcut icon" href="images/images.png" />
@@ -192,10 +192,16 @@ README                           - Basic README file
 
 <pre>
 &lt;div id="gallery-wrapper"&gt;
-  &lt;div id="ubergallery"&gt;
-    &lt;a href="#"&gt;&lt;img src="#" alt="#" /&gt;&lt;/a&gt;
-    &lt;a href="#"&gt;&lt;img src="#" alt="#" /&gt;&lt;/a&gt;
-    &lt;a href="#"&gt;&lt;img src="#" alt="#" /&gt;&lt;/a&gt;
+  &lt;div id="gallery-constraint"&gt;
+    &lt;div id="gallery-header"&gt;UberGallery Image Gallery&lt;/div&gt;
+    &lt;div id="gallery-images"&gt;
+      &lt;a href="#"&gt;&lt;img src="#" /&gt;&lt;/a&gt;
+      &lt;a href="#"&gt;&lt;img src="#" /&gt;&lt;/a&gt;
+      &lt;a href="#"&gt;&lt;img src="#" /&gt;&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div id="uber-footer"&gt;
+      &lt;div id="credit"&gt;Credit...&lt;/div&gt;
+    &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 </pre>
@@ -217,14 +223,14 @@ README                           - Basic README file
     <a name="pagination"></a>
     <h2>Pagination<a href="#" class="top" title="Return to top"></a></h2>
 
-    <p>To enable pagination, open ubergallery/ubergallery.php, find "$imgPerPage = 0;" at the 
+    <p>To enable pagination, open index.php, find <tt>$imgPerPage = 0;</tt> at the 
     top and set this value to the number of images you would like to display per page.</p>
 
     <p><strong>NOTE:</strong> If pagination is enabled, the script will generate thumbnails on a
     per-page basis. You do not have to worry about this though, the first time a
     visitor visits a page without thumbnails, it will automatically generate the
     thumbnails, however this may cause the page to take several seconds to load
-    while it processes.</p>
+    the first time it processes.</p>
 
     <div class="hr"><hr /></div>
 
@@ -248,36 +254,13 @@ README                           - Basic README file
     <a name="update-notifications"></a>
     <h2>Update Notifications<a href="#" class="top" title="Return to top"></a></h2>
 
-    <p>To enable the update notification, open ubergallery/ubergallery.php, find 
-    "$verCheck = 0;" and change this value to 1.  Once done, whenever an update
-    to UberGallery is available, a message will appear at the bottom of your
-    gallery informing you of this new version and providing a link to the new 
-    version.</p>
+    <p>To enable the update notification, open index.php, find <tt>$verCheck = false;</tt> 
+    and change this value to <tt>true</tt>.  Once done, whenever an  update to UberGallery 
+    is available, a message will appear at the bottom of your gallery informing you of 
+    this new version and providing a link to the new version.</p>
 
-    <p>Also, don't forget to follow <a href="http://twitter.com/ubergallery">
-    @ubergallery</a> on twitter to be notified of updates and other news.</p>
-
-    <div class="hr"><hr /></div>
-
-    <a name="gzip-compression"></a>
-    <h2>GZip Compression<a href="#" class="top" title="Return to top"></a></h2>
-
-    <p>In order to improve the performance and reduce the bandwidth of your gallery,
-    it's recomended that you enable gzip compression on the page for which your
-    gallery is being displayed. In order to accomplish this, place the following
-    code at the very beginning of the page to which the gallery will be displayed:</p>
-
-<pre>
-&lt;?php substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip') ? ob_start("ob_gzhandler") : ob_start(); ?&gt;
-</pre>
-
-    <p>This code must be the very fist thing the browser loads or it will cause
-    errors. See the index.php file included with the gallery for an example of how
-    this code is layed out.</p>
-
-    <p><strong>NOTE:</strong> Compression is already enabled in the default index.php, if you are
-    getting errors related to this, remove the first line of index.php and please
-    send me an email noting your version of PHP and any other relevant info.</p>
+    <p>You may also get update notifications by following <a href="http://twitter.com/ubergallery">
+    @ubergallery</a> on Twitter.</p>
 
     <div class="hr"><hr /></div>
 
