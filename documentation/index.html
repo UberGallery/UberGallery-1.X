@@ -106,34 +106,41 @@
     <h3>Included Files/Folders<a href="#" class="top" title="Return to top"></a></h3>
 
 <pre>
-ubergallery/
-|  .cache/                    - Default cache directory
-|  |  .htaccess
-|  css/
-|  |  ubergallery.css          - Default gallery stylesheet
-|  images/                    - Default image directory (put your images here)
-|  |  thumbs/                 - Generated thumbnails directory
-|  |  |  NULL                 - Placeholder file (can be deleted)
-|  thickbox/
-|  |  jquery.js
-|  |  loadingAnimation.gif
-|  |  thickbox.css
-|  |  thickbox.js
-|  ubergallery.php             - Main gallery script
-documents/
+.ubergallery/
+|  cache/                        - Default cache directory
+|  |  .gitignore
+|  images/                       - Default image directory (put your images here)
+|  |  .gitignore/
+|  resources/
+|  |  css/                       - Script styles
+|  |  |  colorbox.css
+|  |  |  ubergallery.css
+|  |  images/                    - Script images
+|  |  |  bg.png
+|  |  |  border.png
+|  |  |  controls.png
+|  |  |  images.png
+|  |  |  loading_background.png
+|  |  |  loading.gif
+|  |  |  page_white_stack.png
+|  |  js/                        - Script JavaScript
+|  |  |  jquery.colorbox.js
+|  |  |  jquery.js
+documentation/
 |  css/
 |  |  ie-fixes.css
 |  |  style.css
 |  files/
-|  |  changelog.txt           - Script changelog
-|  |  license.txt              - License information
+|  |  changelog.txt              - Script changelog
+|  |  license.txt                - License information
 |  images/
-|  |  ubergallery_logo.png
+|  |  arrow_up.png
 |  |  github.png
 |  |  twitter.png
-|  index.html                - This README file
-index.php                     - Contains the page markup
-README                        - Basic README file
+|  |  ubergallery_logo.png
+|  index.html                    - This README file
+index.php                        - Main gallery script
+README                           - Basic README file
 </pre>
 
     <div class="hr"><hr /></div>
@@ -142,10 +149,11 @@ README                        - Basic README file
     <h2>Simple Installation<a href="#" class="top" title="Return to top"></a></h2>
 
     <ol>
-      <li>Upload index.php and ubergallery to your web server directory where you would
-        like the gallery to be displayed. (Example:
+      <li>Upload index.php and the .ubergallery directory to your web server where you 
+        would like the gallery to be displayed. (Example:
         http://www.domain-name.com/photo-gallery/)</li>
-      <li>Upload your images to the ubergallery/images/ directory.</li>
+      <li>Upload your images to the .ubergallery/images/ directory.</li>
+      <li>Make the .ubergaller/cache/ directory wrightable by the web server.</li>
       <li>Open your web browser and navigate to the directory where you installed the
         gallery and the script should generate thumbnails and display your images.</li>
     </ol>
