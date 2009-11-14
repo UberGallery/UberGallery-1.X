@@ -4,9 +4,9 @@
 // is contained within quotes make sure you don't delete the quotes.
 
 $galleryTitle	= "UberGallery Image Gallery";	// Gallery title
-$galleryDir		= ".ubergallery/images";						// Original images directory (No trailing slash!)
-$thumbsDir		= ".ubergallery/cache";		// Thumbnails directory (No trailing slash!)
-$logFile		= ".ubergallery/log.txt";		// Directory/Name of log file
+$galleryDir		= "ubergallery/images";						// Original images directory (No trailing slash!)
+$thumbsDir		= "ubergallery/cache";		// Thumbnails directory (No trailing slash!)
+$logFile		= "ubergallery/log.txt";		// Directory/Name of log file
 $thumbSize		= 100;							// Thumbnail width/height in pixels
 $imgPerPage		= 0;							// Images per page (0 disables pagination)
 $cacheExpire	= 0;							// Frequency (in minutes) of cache refresh
@@ -100,11 +100,11 @@ if ($imgPerPage <= 0 || $imgPerPage >= $totalImages) {
 
 <head>
   <title><?php echo $galleryTitle; ?></title>
-  <link rel="shortcut icon" href=".ubergallery/resources/images/images.png" />
-  <link rel="stylesheet" type="text/css" href=".ubergallery/resources/css/ubergallery.css" />
-  <link rel="stylesheet" type="text/css" href=".ubergallery/resources/css/colorbox.css" />
-  <script type="text/javascript" src=".ubergallery/resources/js/jquery.js"></script>
-  <script type="text/javascript" src=".ubergallery/resources/js/jquery.colorbox.js"></script>
+  <link rel="shortcut icon" href="ubergallery/resources/images/images.png" />
+  <link rel="stylesheet" type="text/css" href="ubergallery/resources/css/ubergallery.css" />
+  <link rel="stylesheet" type="text/css" href="ubergallery/resources/css/colorbox.css" />
+  <script type="text/javascript" src="ubergallery/resources/js/jquery.js"></script>
+  <script type="text/javascript" src="ubergallery/resources/js/jquery.colorbox.js"></script>
   <script type="text/javascript">
   $(document).ready(function(){
     $("a[rel='colorbox']").colorbox({maxWidth: "90%", maxHeight: "90%", opacity: ".5"});
@@ -119,7 +119,7 @@ if ($imgPerPage <= 0 || $imgPerPage >= $totalImages) {
 // *** START PAGE CACHING ***
 
 // Create cache directory if it doesn't exist
-$cacheDir = ".ubergallery/cache";
+$cacheDir = "ubergallery/cache";
 if (!file_exists($cacheDir) && $cacheExpire > 0) {
 	mkdir($cacheDir);
 }

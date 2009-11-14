@@ -7,18 +7,18 @@
 .htaccess
 
 # Ignore cache files
-.ubergallery/cache/*
-!.ubergallery/cache/.htaccess
+ubergallery/cache/*
+!ubergallery/cache/.htaccess
 
 # Ignore all log files
-.ubergallery/log.txt
+ubergallery/log.txt
 *.log
 
 # Ignore all images
-.ubergallery/images/*.jpg
-.ubergallery/images/*.png
-.ubergallery/images/*.gif
-.ubergallery/images/*.jpeg
+ubergallery/images/*.jpg
+ubergallery/images/*.png
+ubergallery/images/*.gif
+ubergallery/images/*.jpeg
 
 # Do not ignore any .gitignore files
 !.gitignore
