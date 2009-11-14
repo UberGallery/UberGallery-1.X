@@ -3,7 +3,7 @@
 // Customize your gallery by changing the following variables. If a variable
 // is contained within quotes make sure you don't delete the quotes.
 
-$galleryTitle	= "UberGallery Image Gallery";	// Gallery title
+$galleryTitle	= "Gallery Title";				// Gallery title
 $galleryDir		= "ubergallery/images";			// Original images directory (No trailing slash!)
 $thumbsDir		= "ubergallery/cache";			// Thumbnails directory (No trailing slash!)
 $logFile		= "ubergallery/log.txt";		// Directory/Name of log file
@@ -99,7 +99,7 @@ if ($imgPerPage <= 0 || $imgPerPage >= $totalImages) {
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-  <title><?php echo $galleryTitle; ?></title>
+  <title><?php echo $galleryTitle; ?> | Powered by, UberGallery</title>
   <link rel="shortcut icon" href="ubergallery/resources/images/images.png" />
   <link rel="stylesheet" type="text/css" href="ubergallery/resources/css/ubergallery.css" />
   <link rel="stylesheet" type="text/css" href="ubergallery/resources/css/colorbox.css" />
