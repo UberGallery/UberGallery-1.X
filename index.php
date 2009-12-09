@@ -16,7 +16,7 @@ $verCheck		= false;						// Set to true to enable update notifications
 
 // *** DO NOT EDIT ANYTHING BELOW HERE UNLESS YOU ARE A PHP NINJA ***
 
-$version = "1.6.0"; // Gallery version
+$version = "1.6.1"; // Gallery version
 
 if ($_GET['page']) {
 	// Sanitize input and set current page
@@ -108,6 +108,9 @@ if ($imgPerPage <= 0 || $imgPerPage >= $totalImages) {
   <script type="text/javascript">
   $(document).ready(function(){
     $("a[rel='colorbox']").colorbox({maxWidth: "90%", maxHeight: "90%", opacity: ".5"});
+    <?php if($_GET['img']): ?>
+      $('#img-<?php echo (integer) $_GET['img']; ?>').click();
+    <?php endif; ?>
   });
   </script>
 </head>
@@ -192,7 +195,7 @@ if (file_exists($cacheFile) && time() - $cacheTime < filemtime($cacheFile) && $c
 		// Create XHTML compliant markup
 		$noExt = substr($images[$x],0,strrpos($images[$x],'.'));
 		$altText = str_replace("_"," ",$noExt);
-		echo "      <a href=\"$filePath\" title=\"$altText\" rel=\"colorbox\"><img src=\"$thumbPath\" alt=\"$altText\"/></a>\r\n";
+		echo "      <a href=\"$filePath\" title=\"$altText\" id=\"img-$x\" rel=\"colorbox\"><img src=\"$thumbPath\" alt=\"$altText\"/></a>\r\n";
 	}
 	echo("    </div>\r\n");
 
