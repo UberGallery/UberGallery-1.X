@@ -1,7 +1,15 @@
 UberGallery Change Log
 ----------------------------------------
 
-  [ Changed to 1.6.0 ]
+  [ Changes to 1.6.2 ]
+  
+    - Added missing entry to changelog and fixed typos
+  
+  [ Changes to 1.6.1 ]
+
+    - Added initial functionality to allow linking to individual images
+
+  [ Changes to 1.6.0 ]
   
     - Updated gallery styles for a cleaner look
     - Added a gallery title for SEO and customizability

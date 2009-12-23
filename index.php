@@ -16,7 +16,7 @@ $verCheck		= false;						// Set to true to enable update notifications
 
 // *** DO NOT EDIT ANYTHING BELOW HERE UNLESS YOU ARE A PHP NINJA ***
 
-$version = "1.6.1"; // Gallery version
+$version = "1.6.2"; // Gallery version
 
 if ($_GET['page']) {
 	// Sanitize input and set current page
