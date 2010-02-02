@@ -3,6 +3,8 @@ UberGallery Change Log
 
   [ Changes to 1.6.2 ]
   
+    - Now loading jQuery v1.4.1 from Google's AJAX Edge servers
+    - Updated Colorbox to v1.3.6
     - Added missing entry to changelog and fixed typos
   
   [ Changes to 1.6.1 ]
