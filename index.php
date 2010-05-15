@@ -103,7 +103,7 @@ if ($imgPerPage <= 0 || $imgPerPage >= $totalImages) {
   <link rel="shortcut icon" href="ubergallery/resources/images/images.png" />
   <link rel="stylesheet" type="text/css" href="ubergallery/resources/css/ubergallery.css" />
   <link rel="stylesheet" type="text/css" href="ubergallery/resources/css/colorbox.css" />
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
   <script type="text/javascript" src="ubergallery/resources/js/jquery.colorbox.js"></script>
   <script type="text/javascript">
   $(document).ready(function(){
