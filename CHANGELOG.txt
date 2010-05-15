@@ -1,0 +1,201 @@
+UberGallery Changelog
+----------------------------------------
+
+[ Changes to 1.6.3 ]
+
+    * Updated remote jQuery include to v1.4.2
+    * Now dual licensed under the MIT license and GPL 2.0 license
+    * Removed documentation (For documentation please refer to
+      http://www.ubergallery.net)
+
+[ Changes to 1.6.2 ]
+
+    * Now loading jQuery v1.4.1 from Google's AJAX Edge servers
+    * Updated Colorbox to v1.3.6
+    * Added missing entry to changelog and fixed typos
+
+[ Changes to 1.6.1 ]
+
+    * Added initial functionality to allow linking to individual images
+
+[ Changes to 1.6.0 ]
+
+    * Updated gallery styles for a cleaner look
+    * Added a gallery title for SEO and customizability
+    * Retired dead project Thickbox in favor of Colorbox
+    * Restructured file/folder layout in preparation for v2.0.0
+
+[ Changes to 1.5.3 ]
+
+    * Updated license to MIT
+    * Updated credit link to ubergallery.net
+    * Updated documentation
+
+[ Changes to 1.5.2 ]
+
+    * Fixed: Total pages not defined when there was only one page
+    * Reverted caching to pre-1.5.1 to fix several bugs
+    * Added pagination title
+
+[ Changes to 1.5.1 ]
+
+    * Modified caching to increase efficiency
+    * Move log to ubergallery/log.txt
+    * Added favicon to default index.php
+
+[ Changes to 1.5.0 ]
+
+    * CK-Gallery is now known as UberGallery
+
+[ Changes to 1.4.1 ]
+
+    * Re-fixed major code injection vulnerability
+    * Updated documentation
+    * Slight formatting changes
+
+[ Changes to 1.4.0 ]
+
+    * Fixed major code injection vulnerability
+    * Cache will no longer create files for pages not in your gallery
+    * Restructured file/folder layout
+    * Removed unnecessary files
+    * Fixed .gitignore to allow cache to be included
+
+[ Changes to 1.3.0 ]
+
+    * Restructured folder layout
+    * Changed cahce folder name to '.cache'
+    * Changed default gallery log file name to 'ck-gallery.log'
+    * Changed credit link to GitHub repository
+
+[ Changes to 1.2.0 ]
+
+    * Added time based page caching option
+    * New gallery documentation, can be found in the "docs" folder
+    * Relocated thickbox loading gif to the thickbox folder
+    * Lowered default jpg image quality from 80 to 75
+    * Minor formatting fixes
+
+[ Changes to 1.1.1 ]
+
+    * URLs now point to new CK-Gallery page, http://code.web-geek.net/ck-gallery
+    * Error messages will no longer be displayed if the update check can't
+      connect to the update site
+    * Added title text on pagination link
+    * Moved functions to bottom of file
+    * Minor code changes
+
+[ Changes to 1.1.0 ]
+
+    * Added an option to enable update notification (disabled by default)
+    * Moved most in-line CSS into gallery.css reducing generated code
+    * Corrections/changes to the Readme for this version
+    * Other minor style sheet changes
+
+[ Changes to 1.0.1 ]
+
+    * Style changes to fix a display bug with the pagination navigation when the
+      script is installed to a pre-existing web page
+    * Changed PHP compression code
+    * Updated Readme to reflect these changes
+    * Miscellaneous index.php changes
+
+[ Changes to 1.0.0 ]
+
+    * HOLY CRAP, PAGINATION!!!
+    * Miscellaneous code tweaking/reorganization to get pagination to work
+    * isImage() function now checks file type instead of file extension
+    * createThumb() function now checks file type instead of file extension
+    * File rename algorithm will now rename *.jpeg to *.jpg eliminating an error
+      with createtruecolor()
+    * File rename algorithm will now replace spaces in file names with
+      underscores allowing page to validate
+    * Integrated rename algorithm into page array loop so it will only rename
+      images that are displayed on the current page
+    * Thumbnail cleanup algorithm will now only cleanup image files
+    * Added GZip compression to the default index.php
+    * Markup output tweaks/changes
+    * Default style additions/changes
+    * New versioning scheme
+    * Readme updated for version 1.0.0 changes
+    * Minor fixes to this changelog
+    * Miscellaneous bug fixes
+    * Oh, and uh... PAGINATION!!!
+
+[ Changes to .84 ]
+
+    * Markup output tweaks
+    * Default style tweaks
+
+[ Changes to .83 ]
+
+    * Modified thumbnail creation algorithm to check if the file is an image
+      before checking if the file exists in the thumbnail dir
+    * Miscellaneous spelling corrections
+    * Miscellaneous formatting corrections
+
+[ Changes to .82 ]
+
+    * Merged file extension conversion, thumbnail generation and markup output
+      generation into one while() loop, reducing code and overhead slightly
+    * Moved thumbnail cleanup to end of script
+
+[ Changes to .81 ]
+
+    * Underscores "_" in alt text and title text are now replace with spaces
+      for SEO optimization
+    * File extensions are now removed from alt text and title text for SEO
+      optimization
+
+[ Changes to .80 ]
+
+    * Lots of code optimization for performance and readability (Thanks to
+      the StackOverflow.com community for their help here!)
+    * Minor markup output changes
+    * Moved the change log to its own file
+
+[ Changes to .79 ]
+
+    * Script will delete thumbnails not of the specified dimensions allowing
+      you to change the image dimensions without having to delete "/thumbs"
+    * File rename algorithm slightly adjusted
+    * Minor markup output fix
+    * Style sheet tweaks
+
+[ Changes to .78 ]
+
+    * Minor markup output fix
+
+[ Changes to .77 ]
+
+    * Minor code optimizations for size and readability
+    * Minor edits/corrections to the readme
+
+[ Changes to .76 ]
+
+    * Check for thickbox.js existence, if it exists will display a link to the
+      thickbox web page, if file doesn't exist link will not be display
+    * Added variable for image dimensions
+    * Minor code optimizations
+
+[ Changes to .75 ]
+
+    * Minor markup output fix
+
+[ Changes to .74 ]
+
+    * Rewrote and optimized the file rename algorithm reducing script size
+    * Rearranged code order for better organization and readability
+    * Added file version to outputted markup
+
+[ Changes to .73 ]
+
+    * Changed project license to GNU Public License version 3.0
+      http://www.opensource.org/licenses/gpl-3.0.html
+    * Updated CK-Gallery reference URL
+    * Added this readme.txt file
+
+[ Changes to .72 ]
+
+    * Log file now keeps old info for future viewing
+    * Log file will not be written to if the script doesn't do anything
